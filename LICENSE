@@ -200,3 +200,23 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
+----------------------------------------------------------------------------------------------
+
+IMPORTANT NOTICE REGARDING PROJECT ASSETS AND CREATIVE WORKS
+
+While the source code is provided under the Apache 2.0 License, this license DOES NOT apply to the project's non-code creative materials and assets.
+
+This includes, without limitation:
+
+- All images, videos, audio, and media files (e.g., files in /assets/, /images/, /favicons/, /logos/, /media/, etc.).
+- All logos, trademarks, and brand identity materials.
+- All non-code documentation and related research papers (e.g., PDF, DOCX, or separate Markdown files).
+- All written contents and creative work (e.g., JSX, TSX, HTML, etc,).
+
+These specific materials are held under a separate and restrictive copyright:
+
+COPYRIGHT (c) 2025 Suryansh Singh (thedevmystic) All Rights Reserved.
+
+Any reproduction, modification, or redistribution of the above-listed assets requires the express written permission of the copyright holder.
+
+THE APACHE 2.0 LICENSE ONLY APPLIES TO THE SOURCE CODE AND DOES NOT EXTEND TO ANY ASSETS OR WRITTEN CONTENT IDENTIFIED IN THE NOTICE ABOVE.

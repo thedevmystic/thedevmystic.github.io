@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Development - Coming Soon!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="mascot-section">
+        <img src="cat-mascot.png" alt="Mr. Wishkers" class="mascot-image">
+    </div>
+
+    <header class="content-header">
+        <h1>UNDER DEVELOPMENT</h1>
+	<p class="tagline">I'm crafting something <b>purr-fect</b>!</p>
+    </header>
+
+    <div class="countdown-timer">
+        <div class="time-box">
+            <span class="value" id="days">28</span>
+            <span class="label">Days</span>
+        </div>
+        <div class="time-box">
+            <span class="value" id="hours">15</span>
+            <span class="label">Hours</span>
+        </div>
+        <div class="time-box">
+            <span class="value" id="minutes">30</span>
+            <span class="label">Mins</span>
+        </div>
+    </div>
+    <p class="sub-text">Stay connected for updates!</p>
+
+    <div class="social-icons">
+        <a href="https://github.com/thedevmystic" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://x.com/thedevmystic" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/thedevmystic" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:thedevmystic@gmail.com" target="_blank" title="E-mail"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <footer>
+        <p> © Suryansh Singh (thedevmystic) 2025</p>
+    </footer>
+
+    <script>
+        const TARGET_EPOCH_MS = 1772323200000; // Sunday March 01 2026 UTC
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const countdownContainer = document.querySelector('.countdown-timer');
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = TARGET_EPOCH_MS - now;
+            const MS_PER_DAY = 1000 * 60 * 60 * 24;
+            const MS_PER_HOUR = 1000 * 60 * 60;
+            const MS_PER_MINUTE = 1000 * 60;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                daysEl.textContent = '00';
+                hoursEl.textContent = '00';
+                minutesEl.textContent = '00';
+                countdownContainer.innerHTML = '<span class="launch-message">WE ARE LIVE!</span>';
+                return;
+            }
+
+            const days = Math.floor(distance / MS_PER_DAY);
+            const hours = Math.floor((distance % MS_PER_DAY) / MS_PER_HOUR);
+            const minutes = Math.floor((distance % MS_PER_HOUR) / MS_PER_MINUTE);
+            const formatTime = (time) => String(time).padStart(2, '0');
+
+            daysEl.textContent = formatTime(days);
+            hoursEl.textContent = formatTime(hours);
+            minutesEl.textContent = formatTime(minutes);
+        }
+
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 60000);
+    </script>
+</body>
+</html>

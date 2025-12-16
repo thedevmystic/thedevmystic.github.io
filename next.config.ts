@@ -43,9 +43,9 @@ const OFFLINE_REVISION: string = "0.0.1";
  */
 const withSerwist = withSerwistInit({
   // Service worker source
-  swSrc: "app/sw.ts",
+  swSrc: "src/sw.ts",
   // Service worker destination
-  swDest: "/sw.js",
+  swDest: "public/sw.js",
   // Disable for developement & enable for production
   disable: !isProd,
   // Register worker manually

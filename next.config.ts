@@ -98,6 +98,9 @@ const nextConfig: NextConfig = {
 
   // Use react compiler
   reactCompiler: true,
+
+  // Turbopack config
+  turbopack: {},
 };
 
 /**

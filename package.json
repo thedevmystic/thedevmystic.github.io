@@ -10,9 +10,7 @@
     "build": "rimraf out && next build",
     "start": "next start",
     "lint": "eslint",
-    "type-check": "tsc --noEmit --watch",
-    "css:watch": "npx @tailwindcss/cli -i ./src/main.css -o ./dist/styles.css --watch",
-    "css:build": "npx @tailwindcss/cli -i ./src/main.css -o ./dist/styles.css --minify"
+    "type-check": "tsc --noEmit --watch"
   },
   "dependencies": {
     "@serwist/next": "^9.0.0",

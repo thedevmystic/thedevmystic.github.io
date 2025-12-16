@@ -1,34 +1,67 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    // === Language Level & Module Resolution ===
+    "target": "ES2022",                                       // Use modern ECMAScript target
+    "lib": ["DOM", "DOM.Iterable", "ESNext", "WebWorker"],    // Include common environments
+    "module": "ESNext",
+    "moduleResolution": "bundler",                            // Next.js recommended module resolution
+    "jsx": "react-jsx",                                       // Modern JSX transform (React 17+)
+    
+    // === Interoperability & Build Process ===
     "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx",
+    "isolatedModules": true,                                  // Required for Next.js/Babel compilation
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,                     // Used alongside esModuleInterop, not necessary, but harmless
+    "noEmit": true,                                           // IMPORTANT: Only type-check, do not compile
     "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
+
+    // === Strictness & Safety Checks ===
+    "strict": true,                                           // Enable all strict checks
+    "skipLibCheck": true,                                     // Improve type-checking performance
+    "forceConsistentCasingInFileNames": true,                 // CRITICAL for cross-OS portability
+    
+    // Explicit Strictness
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUncheckedIndexedAccess": true,                         // Enforce safer array/object access
+    "noFallthroughCasesInSwitch": true,                       // Prevent accidental switch fallthrough
+    "noImplicitReturns": true,                                // Ensure explicit returns in all code paths
+    "noUnusedLocals": true,                                   // Warn on unused local variables
+    "noUnusedParameters": true,                               // Warn on unused parameters
+
+    // === Path Aliases ===
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@app/*": ["./src/app/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@components/*": ["./src/components/*"],
+      "@library/*": ["./src/library/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@types/*": ["./src/types/*"],
+      "@config/*": ["./src/config/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.mts",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "dist",                                                   // Exclude build output
+    "public/sw.js",                                            // Exclude compiled service workers
+  ]
 }
+

@@ -76,11 +76,7 @@ const withSerwist = withSerwistInit({
     ({ asset }) => asset.name.startsWith('server/'),
     /\.map$/, // Exclude source maps
   ],
-
-  // Always minify
-  minify: true,
 });
-
 
 /**
  * @description Next.js configurations.
@@ -96,9 +92,6 @@ const nextConfig: NextConfig = {
 
   // Base deplyoment path
   basePath: "",
-
-  // Assets path
-  assetPath: "",
 
   // Use react strict mode for safety.
   reactStrictMode: true,

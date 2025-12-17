@@ -28,10 +28,10 @@
 /**
  * @description TailwindCSS import.
  */
-@import "tailwindcss"
+@import "tailwindcss";
 
 /**
  * @description Brand colors.
  */
-@import "@styles/brand-colors"
+@import "./brand-colors.css";
 

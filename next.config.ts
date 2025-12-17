@@ -26,7 +26,13 @@
  */
 
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
 import withSerwistInit from "@serwist/next";
+
+// MDX Plugins
+import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug';
+import rehypePrismPlus from 'rehype-prism-plus';
 
 /**
  * @description To determine whether it is production build, or not.
@@ -73,9 +79,21 @@ const withSerwist = withSerwistInit({
 
   // Exclude files
   exclude: [
-    ({ asset }) => asset.name.startsWith('server/'),
-    /\.map$/, // Exclude source maps
+    ({ asset }) => asset.name.startsWith('server/') || asset.name.startsWith('static/runtime/'),
+    /\.map$/,
+    /^.*middleware.*$/,
   ],
+});
+
+/**
+ * @description MDX configurations.
+ */
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeSlug, rehypePrismPlus],
+  },
 });
 
 /**
@@ -93,6 +111,12 @@ const nextConfig: NextConfig = {
   // Base deplyoment path
   basePath: "",
 
+  // Page extensions
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+
+  // Use trailing slashes
+  trailingSlash: true,
+
   // Use react strict mode for safety.
   reactStrictMode: true,
 
@@ -106,5 +130,5 @@ const nextConfig: NextConfig = {
 /**
  * @description Export next's configurations with serwist's configurations.
  */
-export default withSerwist(nextConfig);
+export default withSerwist(withMDX(nextConfig));
 

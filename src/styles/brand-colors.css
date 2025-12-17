@@ -1,0 +1,174 @@
+/**
+ * Copyright 2025 Suryansh Singh
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * ------------------------------------------------------------------------------------------------------
+ *
+ * @path [ROOT]/src/styles/brand-colors.css
+ * @file brand-colors.css
+ * @description CSS file for brand color integration with TailwindCSS.
+ *
+ * @author thedevmystic (Surya)
+ * @copyright 2025 Suryansh Singh Apache-2.0 License
+ *
+ * SPDX-FileCopyrightText: 2025 Suryansh Singh
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/**
+ * @description Raw hex colors for light theme.
+ */
+:root {
+  /** Backgrounds **/
+  --color-base-raw:    #f9fbf9;
+  --color-code-raw:    #f9f5d7;
+  --color-banner-raw:  #d6ece7;
+  --color-feature-raw: #f1f8f5;
+
+  /** Accent **/
+  --color-accent-raw:  #2c6975;
+
+  /** Status/Feedback **/
+  --color-success-raw: #4c7f53;
+  --color-warning-raw: #d49a37;
+  --color-failure-raw: #8b3a3a;
+
+  /** Text Colors **/
+  --color-body-raw:      #2e2e2e;
+  --color-link-raw:      #2c6975;
+  --color-hover-raw:     #4fb3b3;
+  --color-focus-raw:     #2c6975;
+  --color-button-raw:    #121212;
+  --color-heading-raw:   #1f3b4d;
+  --color-caption-raw:   #6b6b6b;
+  --color-paragraph-raw: #4a4a4a;
+
+  /** Code Styling (Syntax) **/
+  --color-syntax-tag-raw:          #458588;
+  --color-syntax-class-raw:        #8f3f71;
+  --color-syntax-string-raw:       #b57614;
+  --color-syntax-comment-raw:      #7c6f64;
+  --color-syntax-numeric-raw:      #8f3f71;
+  --color-syntax-keyword-raw:      #9d0006;
+  --color-syntax-selector-raw:     #689d6a;
+  --color-syntax-property-raw:     #9d0006;
+  --color-syntax-operator-raw:     #b57614;
+  --color-syntax-function-raw:     #458588;
+  --color-syntax-attribute-raw:    #b57614;
+  --color-syntax-punctuations-raw: #665c54;
+
+  /** Code UI **/
+  --color-language-label-raw:      #2e2e2e;
+  --color-code-line-number-raw:    #7c6f64;
+  --color-toolbar-background-raw:  #d6ece7;
+  --color-code-line-highlight-raw: #fbf1c7;
+}
+
+/**
+ * @description Raw hex colors for dark theme.
+ */
+:root.dark {
+  /** Backgrounds **/
+  --color-base-raw:    #0f1917;
+  --color-code-raw:    #282828;
+  --color-banner-raw:  #1c2e2b;
+  --color-feature-raw: #162422;
+
+  /** Accent **/
+  --color-accent-raw:  #4fb3b3;
+
+  /** Status/Feedback **/
+  --color-success-raw: #8fbc8f;
+  --color-warning-raw: #ffcc66;
+  --color-failure-raw: #ff6b6b;
+
+  /** Text Colors **/
+  --color-body-raw:      #e0e0e0;
+  --color-link-raw:      #4fb3b3;
+  --color-hover-raw:     #7fd9d9;
+  --color-focus-raw:     #4fb3b3;
+  --color-button-raw:    #f8f8f8;
+  --color-caption-raw:   #9a9a9a;
+  --color-heading-raw:   #e6f1f3;
+  --color-paragraph-raw: #c4c4c4;
+
+  /** Code Styling (Syntax) **/
+  --color-syntax-tag-raw:          #83a598;
+  --color-syntax-class-raw:        #d3869b;
+  --color-syntax-string-raw:       #fabd2f;
+  --color-syntax-comment-raw:      #928374;
+  --color-syntax-numeric-raw:      #d3869b;
+  --color-syntax-keyword-raw:      #fb4934;
+  --color-syntax-selector-raw:     #b8bb26;
+  --color-syntax-property-raw:     #fb4934;
+  --color-syntax-operator-raw:     #fe8019;
+  --color-syntax-function-raw:     #83a598;
+  --color-syntax-attribute-raw:    #d65d0e;
+  --color-syntax-punctuations-raw: #ebdbb2;
+
+  /** Code UI **/
+  --color-language-label-raw:      #e0e0e0;
+  --color-code-line-number-raw:    #928374;
+  --color-toolbar-background-raw:  #1c2e2b;
+  --color-code-line-highlight-raw: #3c3836;
+}
+
+/**
+ * @description Brand colors.
+ */
+@theme inline {
+  /* Backgrounds */
+  --color-base:    var(--color-base-raw);
+  --color-code:    var(--color-code-raw);
+  --color-banner:  var(--color-banner-raw);
+  --color-feature: var(--color-feature-raw);
+
+  /* Accent */
+  --color-accent:  var(--color-accent-raw);
+
+  /* Status */
+  --color-success: var(--color-success-raw);
+  --color-warning: var(--color-warning-raw);
+  --color-failure: var(--color-failure-raw);
+
+  /* Typography */
+  --color-body:      var(--color-body-raw);
+  --color-link:      var(--color-link-raw);
+  --color-hover:     var(--color-hover-raw);
+  --color-focus:     var(--color-focus-raw);
+  --color-button:    var(--color-button-raw);
+  --color-heading:   var(--color-heading-raw);
+  --color-caption:   var(--color-caption-raw);
+  --color-paragraph: var(--color-paragraph-raw);
+
+  /* Code Syntax */
+  --color-syntax-tag:          var(--color-syntax-tag-raw);
+  --color-syntax-class:        var(--color-syntax-class-raw);
+  --color-syntax-string:       var(--color-syntax-string-raw);
+  --color-syntax-comment:      var(--color-syntax-comment-raw);
+  --color-syntax-numeric:      var(--color-syntax-numeric-raw);
+  --color-syntax-keyword:      var(--color-syntax-keyword-raw);
+  --color-syntax-selector:     var(--color-syntax-selector-raw);
+  --color-syntax-property:     var(--color-syntax-property-raw);
+  --color-syntax-operator:     var(--color-syntax-operator-raw);
+  --color-syntax-function:     var(--color-syntax-function-raw);
+  --color-syntax-attribute:    var(--color-syntax-attribute-raw);
+  --color-syntax-punctuations: var(--color-syntax-punctuations-raw);
+
+  /* Code UI */
+  --color-language-label:      var(--color-language-label-raw);
+  --color-code-line-number:    var(--color-code-line-number-raw);
+  --color-toolbar-background:  var(--color-toolbar-background-raw);
+  --color-code-line-highlight: var(--color-code-line-highlight-raw);
+}
+

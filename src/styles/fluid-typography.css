@@ -194,7 +194,7 @@
   /* Spacing pairs */
   --spacing-3xs-2xs: var(--space-3xs-2xs);
   --spacing-2xs-xs:  var(--space-2xs-xs);
-  --spacing-xs-sm:   var(--space-xs-s);
+  --spacing-xs-sm:   var(--space-xs-sm);
   --spacing-sm-md:   var(--space-sm-md);
   --spacing-md-lg:   var(--space-md-lg);
   --spacing-lg-xl:   var(--space-lg-xl);
@@ -220,5 +220,35 @@
   --width-grid-max: var(--grid-max-width);
   --spacing-grid:   var(--grid-width);
   --grid-template-columns-main: repeat(var(--grid-columns), minmax(0, 1fr));
+}
+
+/**
+ * @description Fluid container utility.
+ */
+@utility container-fluid {
+  max-width: var(--width-grid-max);
+  margin-inline: auto;
+  padding-inline: var(--spacing-grid);
+}
+
+/**
+ * @description Main grid utility.
+ */
+@utility grid-main {
+  display: grid;
+  gap: var(--spacing-grid);
+  grid-template-columns: var(--grid-template-columns-main);
+}
+
+/**
+ * @description Flow controlled spacing.
+ */
+@utility flow {
+  /* Flow spacing */
+  --flow-space: var(--spacing-md);
+
+  & > * + * {
+    margin-top: var(--flow-space);
+  }
 }
 

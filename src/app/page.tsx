@@ -28,7 +28,7 @@ export default function Home() {
 
         {/* Hero Section - Tests Fluid Typography Step 5 & 1 */}
         <section className="py-lg">
-          <h1 className="text-4xl font-bold tracking-tight text-heading leading-[1.1]">
+          <h1 className="text-4xl font-bold tracking-tight text-heading leading-none">
             Fluid Design System <span className="text-accent">Integrity Test</span>
           </h1>
           <p className="mt-sm text-lg text-paragraph leading-normal">

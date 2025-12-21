@@ -1,21 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "@styles/main.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "TheDevMystic Development",
-  description: "Test Website for Development",
+  title: "The Dev Mystic | Development",
+  description: "Development and Testing Website",
 };
+
+function PreloadFonts() {
+  return (
+    <>
+      <link
+        rel="preload"
+        href="/fonts/montserrat/montserrat-normal-vf.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href="/fonts/open-sans/open-sans-normal-vf.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        href="/fonts/jetbrains-mono/jetbrains-mono-normal-vf.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+    </>
+  );
+}
 
 export default function RootLayout({
   children,
@@ -24,9 +41,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        <PreloadFonts />
+      </head>
+      <body className="antialiased">
         {children}
       </body>
     </html>

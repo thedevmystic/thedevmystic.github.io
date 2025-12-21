@@ -35,3 +35,8 @@
  */
 @import "./brand-colors.css";
 
+/**
+ * @description Fluid typography.
+ */
+@import "./fluid-typography.css";
+

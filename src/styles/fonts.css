@@ -1,0 +1,808 @@
+/**
+ * Copyright 2025 Suryansh Singh
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * ------------------------------------------------------------------------------------------------------
+ *
+ * @path [ROOT]/src/styles/fonts.css
+ * @file fonts.css
+ * @description CSS file for fonts integration with TailwindCSS.
+ *
+ * @author thedevmystic (Surya)
+ * @copyright 2025 Suryansh Singh Apache-2.0 License
+ *
+ * SPDX-FileCopyrightText: 2025 Suryansh Singh
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+@layer base {
+
+/**
+ * @description Montserrat font face declaration.
+ */
+
+/* Normal */
+@font-face {
+  /* Font family name */
+  font-family: "Montserrat";
+  /* Variable Font */
+  font-weight: 400 700;
+  /* Style */
+  font-style: normal;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Font files */
+  src: url("/fonts/montserrat/montserrat-normal-vf.woff2") format("woff2-variations"),    /* Modern preferred, least size. */
+       url("/fonts/montserrat/montserrat-normal-vf.woff")  format("woff-variations"),     /* Stable and widely supported.  */
+       url("/fonts/montserrat/montserrat-normal-vf.ttf")   format("truetype-variations"); /* Least preferred, high size.   */
+}
+
+/* Italic */
+@font-face {
+  /* Font family name */
+  font-family: "Montserrat";
+  /* Variable Font */
+  font-weight: 400 700;
+  /* Style */
+  font-style: italic;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Font files */
+  src: url("/fonts/montserrat/montserrat-italic-vf.woff2") format("woff2-variations"),    /* Modern preferred, least size. */
+       url("/fonts/montserrat/montserrat-italic-vf.woff")  format("woff-variations"),     /* Stable and widely supported.  */
+       url("/fonts/montserrat/montserrat-italic-vf.ttf")   format("truetype-variations"); /* Least preferred, high size.   */
+}
+
+/**
+ * @description Fallback font face declaration of Montserrat.
+ * This fallback font uses Arial, then fine tune it for ZLS (Zero Layout Shift).
+ */
+
+/* Normal */
+@font-face {
+  /* Font family name */
+  font-family: "Montserrat Fallback";
+  /* Static Font */
+  font-weight: 400;
+  /* Style */
+  font-style: normal;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Metrics for ZLS */
+  size-adjust: 100.77%;
+  ascent-override: 96.8%;
+  descent-override: 25.1%;
+  line-gap-override: 0%;
+
+  /* Font files, here using metric equivalent font as our calculation depends on metrics.  */
+  src: 
+       /* Offical PS name */
+       local("Arial"), /* PS name */
+       local("ArialRegular"), /* PS alternate name */
+       
+       /* Windows */
+       local("Arial Regular"), /* Windows and General */
+       local("Arial-Regular"), /* Windows alternate name */
+
+       /* macOS & iOS */
+       local("ArialMT"), /* macOS & iOS */
+       local("Arial-RegularMT"), /* macOS & iOS PS alternate name */
+       local("ArialMT Regular"), /* macOS & iOS PS alternate name */
+
+       /* Linux */
+       local("Liberation Sans"), /* Linux */
+       local("LiberationSans"), /* Linux PS alternate name */
+       local("LiberationSans-Regular"), /* Linux alternate name */
+       
+       /* Android */
+       local("Arimo"), /* Android */
+       local("Arimo-Regular"), /* Android PS alternate name */
+       local("Arimo Regular"); /* Android alternate name */
+}
+
+/* Italic */
+@font-face {
+  /* Font family name */
+  font-family: "Montserrat Fallback";
+  /* Static Font */
+  font-weight: 400;
+  /* Style */
+  font-style: italic;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Metrics for ZLS */
+  size-adjust: 100.77%;
+  ascent-override: 96.8%;
+  descent-override: 25.1%;
+  line-gap-override: 0%;
+
+  /* Font files, here using metric equivalent font as our calculation depends on metrics.  */
+  src: 
+       /* Offical PS names */
+       local("Arial-Italic"), /* PS name */
+       local("ArialItalic"), /* PS alternate name */
+       
+       /* Windows */
+       local("Arial Italic"), /* Windows and General */
+       local("Arial Regular Italic"), /* Windows alternate name */
+       local("Arial Regular"), /* Sometimes on Windows Arial is registered without Italic but with style as italic. */
+       local("ArialRegularItalic"), /* Highly rare but possible name */
+
+       /* maxOS & iOS */
+       local("ArialMT Italic"), /* Common macOS & iOS */
+       local("Arial-ItalicMT"), /* macOS & iOS PS alternate name */
+       local("Arial-Regular-ItalicMT"), /* macOS & iOS alternate name */
+       
+       /* Linux */
+       local("Liberation Sans Italic"), /* Linux */
+       local("LiberationSansItalic"), /* Linux PS alternate name */
+       local("LiberationSans-Italic"), /* Linux alternate name */
+       
+       /* Android */
+       local("Arimo Italic"), /* Android */
+       local("ArimoItalic"), /* Android PS alternate name */
+       local("Arimo-Italic"); /* Android alternative name */
+}
+
+/* Bold */
+@font-face {
+  /* Font family name */
+  font-family: "Montserrat Fallback";
+  /* Static Font */
+  font-weight: 700;
+  /* Style */
+  font-style: normal;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Metrics for ZLS */
+  size-adjust: 100.77%;
+  ascent-override: 96.8%;
+  descent-override: 25.1%;
+  line-gap-override: 0%;
+
+  /* Font files, here using metric equivalent font as our calculation depends on metrics.  */
+  src: 
+       /* Offical PS name */
+       local("ArialBold"), /* PS name */
+       local("Arial-Bold"), /* PS alternate name */
+       
+       /* Windows */
+       local("Arial Bold"), /* Windows and General */
+       local("ArialBd"), /* Windows alternate name */
+
+       /* macOS & iOS */
+       local("ArialBoldMT"), /* macOS & iOS */
+       local("Arial-BoldMT"), /* macOS & iOS PS alternate name */
+       local("ArialMT Bold"), /* macOS & iOS PS alternate name */
+
+       /* Linux */
+       local("Liberation Sans Bold"), /* Linux */
+       local("LiberationSansBold"), /* Linux PS alternate name */
+       local("LiberationSans-Bold"), /* Linux alternate name */
+       
+       /* Android */
+       local("Arimo Bold"), /* Android */
+       local("Arimo-Bold"), /* Android PS alternate name */
+       local("ArimoBold"); /* Android alternate name */
+}
+
+/* Bold Italic */
+@font-face {
+  /* Font family name */
+  font-family: "Montserrat Fallback";
+  /* Static Font */
+  font-weight: 700;
+  /* Style */
+  font-style: italic;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Metrics for ZLS */
+  size-adjust: 100.77%;
+  ascent-override: 96.8%;
+  descent-override: 25.1%;
+  line-gap-override: 0%;
+
+  /* Font files, here using metric equivalent font as our calculation depends on metrics.  */
+  src: 
+       /* Offical PS names */
+       local("ArialBold-Italic"), /* PS name */
+       local("ArialBoldItalic"), /* PS alternate name */
+       
+       /* Windows */
+       local("Arial Bold Italic"), /* Windows and General */
+       local("ArialBold Italic"), /* Windows alternate name */
+       local("Arial-Bold-Italic"), /* Sometimes on Windows Arial is registered without Italic but with style as italic. */
+       local("Arial-Bold Italic"), /* Highly rare but possible name */
+
+       /* maxOS & iOS */
+       local("ArialBoldMT Italic"), /* Common macOS & iOS */
+       local("ArialBold-ItalicMT"), /* macOS & iOS PS alternate name */
+       local("Arial-Bold-ItalicMT"), /* macOS & iOS alternate name */
+       
+       /* Linux */
+       local("Liberation Sans Bold Italic"), /* Linux */
+       local("LiberationSansBoldItalic"), /* Linux PS alternate name */
+       local("LiberationSansBold-Italic"), /* Linux alternate name */
+       
+       /* Android */
+       local("Arimo Bold Italic"), /* Android */
+       local("ArimoBoldItalic"), /* Android PS alternate name */
+       local("ArimoBold-Italic"); /* Android alternative name */
+}
+
+/**
+ * @description Open Sans font face declaration.
+ */
+
+/* Normal */
+@font-face {
+  /* Font family name */
+  font-family: "Open Sans";
+  /* Variable Font */
+  font-weight: 400 700;
+  /* Style */
+  font-style: normal;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Font files */
+  src: url("/fonts/open-sans/open-sans-normal-vf.woff2") format("woff2-variations"),    /* Modern preferred, least size. */
+       url("/fonts/open-sans/open-sans-normal-vf.woff")  format("woff-variations"),     /* Stable and widely supported.  */
+       url("/fonts/open-sans/open-sans-normal-vf.ttf")   format("truetype-variations"); /* Least preferred, high size.   */
+}
+
+/* Italic */
+@font-face {
+  /* Font family name */
+  font-family: "Open Sans";
+  /* Variable Font */
+  font-weight: 400 700;
+  /* Style */
+  font-style: italic;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Font files */
+  src: url("/fonts/open-sans/open-sans-italic-vf.woff2") format("woff2-variations"),    /* Modern preferred, least size. */
+       url("/fonts/open-sans/open-sans-italic-vf.woff")  format("woff-variations"),     /* Stable and widely supported.  */
+       url("/fonts/open-sans/open-sans-italic-vf.ttf")   format("truetype-variations"); /* Least preferred, high size.   */
+}
+
+/**
+ * @description Fallback font face declaration of Open Sans.
+ * This fallback font uses Arial, then fine tune it for ZLS (Zero Layout Shift).
+ */
+
+/* Normal */
+@font-face {
+  /* Font family name */
+  font-family: "Open Sans Fallback";
+  /* Static Font */
+  font-weight: 400;
+  /* Style */
+  font-style: normal;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Metrics for ZLS */
+  size-adjust: 103.27%;
+  ascent-override: 106.88%;
+  descent-override: 29.30%;
+  line-gap-override: 0%;
+
+  /* Font files, here using metric equivalent font as our calculation depends on metrics.  */
+  src: 
+       /* Offical PS name */
+       local("Arial"), /* PS name */
+       local("ArialRegular"), /* PS alternate name */
+       
+       /* Windows */
+       local("Arial Regular"), /* Windows and General */
+       local("Arial-Regular"), /* Windows alternate name */
+
+       /* macOS & iOS */
+       local("ArialMT"), /* macOS & iOS */
+       local("Arial-RegularMT"), /* macOS & iOS PS alternate name */
+       local("ArialMT Regular"), /* macOS & iOS PS alternate name */
+
+       /* Linux */
+       local("Liberation Sans"), /* Linux */
+       local("LiberationSans"), /* Linux PS alternate name */
+       local("LiberationSans-Regular"), /* Linux alternate name */
+       
+       /* Android */
+       local("Arimo"), /* Android */
+       local("Arimo-Regular"), /* Android PS alternate name */
+       local("Arimo Regular"); /* Android alternate name */
+}
+
+/* Italic */
+@font-face {
+  /* Font family name */
+  font-family: "Open Sans Fallback";
+  /* Static Font */
+  font-weight: 400;
+  /* Style */
+  font-style: italic;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Metrics for ZLS */
+  size-adjust: 103.27%;
+  ascent-override: 106.88%;
+  descent-override: 29.30%;
+  line-gap-override: 0%;
+
+  /* Font files, here using metric equivalent font as our calculation depends on metrics.  */
+  src: 
+       /* Offical PS names */
+       local("Arial-Italic"), /* PS name */
+       local("ArialItalic"), /* PS alternate name */
+       
+       /* Windows */
+       local("Arial Italic"), /* Windows and General */
+       local("Arial Regular Italic"), /* Windows alternate name */
+       local("Arial Regular"), /* Sometimes on Windows Arial is registered without Italic but with style as italic. */
+       local("ArialRegularItalic"), /* Highly rare but possible name */
+
+       /* maxOS & iOS */
+       local("ArialMT Italic"), /* Common macOS & iOS */
+       local("Arial-ItalicMT"), /* macOS & iOS PS alternate name */
+       local("Arial-Regular-ItalicMT"), /* macOS & iOS alternate name */
+       
+       /* Linux */
+       local("Liberation Sans Italic"), /* Linux */
+       local("LiberationSansItalic"), /* Linux PS alternate name */
+       local("LiberationSans-Italic"), /* Linux alternate name */
+       
+       /* Android */
+       local("Arimo Italic"), /* Android */
+       local("ArimoItalic"), /* Android PS alternate name */
+       local("Arimo-Italic"); /* Android alternative name */
+}
+
+/* Bold */
+@font-face {
+  /* Font family name */
+  font-family: "Open Sans Fallback";
+  /* Static Font */
+  font-weight: 700;
+  /* Style */
+  font-style: normal;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Metrics for ZLS */
+  size-adjust: 103.27%;
+  ascent-override: 106.88%;
+  descent-override: 29.30%;
+  line-gap-override: 0%;
+
+  /* Font files, here using metric equivalent font as our calculation depends on metrics.  */
+  src: 
+       /* Offical PS name */
+       local("ArialBold"), /* PS name */
+       local("Arial-Bold"), /* PS alternate name */
+       
+       /* Windows */
+       local("Arial Bold"), /* Windows and General */
+       local("ArialBd"), /* Windows alternate name */
+
+       /* macOS & iOS */
+       local("ArialBoldMT"), /* macOS & iOS */
+       local("Arial-BoldMT"), /* macOS & iOS PS alternate name */
+       local("ArialMT Bold"), /* macOS & iOS PS alternate name */
+
+       /* Linux */
+       local("Liberation Sans Bold"), /* Linux */
+       local("LiberationSansBold"), /* Linux PS alternate name */
+       local("LiberationSans-Bold"), /* Linux alternate name */
+       
+       /* Android */
+       local("Arimo Bold"), /* Android */
+       local("Arimo-Bold"), /* Android PS alternate name */
+       local("ArimoBold"); /* Android alternate name */
+}
+
+/* Bold Italic */
+@font-face {
+  /* Font family name */
+  font-family: "Open Sans Fallback";
+  /* Static Font */
+  font-weight: 700;
+  /* Style */
+  font-style: italic;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Metrics for ZLS */
+  size-adjust: 103.27%;
+  ascent-override: 106.88%;
+  descent-override: 29.30%;
+  line-gap-override: 0%;
+
+  /* Font files, here using metric equivalent font as our calculation depends on metrics.  */
+  src: 
+       /* Offical PS names */
+       local("ArialBold-Italic"), /* PS name */
+       local("ArialBoldItalic"), /* PS alternate name */
+       
+       /* Windows */
+       local("Arial Bold Italic"), /* Windows and General */
+       local("ArialBold Italic"), /* Windows alternate name */
+       local("Arial-Bold-Italic"), /* Sometimes on Windows Arial is registered without Italic but with style as italic. */
+       local("Arial-Bold Italic"), /* Highly rare but possible name */
+
+       /* maxOS & iOS */
+       local("ArialBoldMT Italic"), /* Common macOS & iOS */
+       local("ArialBold-ItalicMT"), /* macOS & iOS PS alternate name */
+       local("Arial-Bold-ItalicMT"), /* macOS & iOS alternate name */
+       
+       /* Linux */
+       local("Liberation Sans Bold Italic"), /* Linux */
+       local("LiberationSansBoldItalic"), /* Linux PS alternate name */
+       local("LiberationSansBold-Italic"), /* Linux alternate name */
+       
+       /* Android */
+       local("Arimo Bold Italic"), /* Android */
+       local("ArimoBoldItalic"), /* Android PS alternate name */
+       local("ArimoBold-Italic"); /* Android alternative name */
+}
+
+/**
+ * @description JetBrains Mono font face declaration.
+ */
+
+/* Normal */
+@font-face {
+  /* Font family name */
+  font-family: "JetBrains Mono";
+  /* Variable Font */
+  font-weight: 400 700;
+  /* Style */
+  font-style: normal;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Font files */
+  src: url("/fonts/jetbrains-mono/jetbrains-mono-normal-vf.woff2") format("woff2-variations"),    /* Modern preferred, least size. */
+       url("/fonts/jetbrains-mono/jetbrains-mono-normal-vf.woff")  format("woff-variations"),     /* Stable and widely supported.  */
+       url("/fonts/jetbrains-mono/jetbrains-mono-normal-vf.ttf")   format("truetype-variations"); /* Least preferred, high size.   */
+}
+
+/* Bold Italic */
+@font-face {
+  /* Font family name */
+  font-family: "JetBrains Mono";
+  /* Variable Font */
+  font-weight: 400 700;
+  /* Style */
+  font-style: italic;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Font files */
+  src: url("/fonts/jetbrains-mono/jetbrains-mono-italic-vf.woff2") format("woff2-variations"),    /* Modern preferred, least size. */
+       url("/fonts/jetbrains-mono/jetbrains-mono-italic-vf.woff")  format("woff-variations"),     /* Stable and widely supported.  */
+       url("/fonts/jetbrains-mono/jetbrains-mono-italic-vf.ttf")   format("truetype-variations"); /* Least preferred, high size.   */
+}
+
+/**
+ * @description Fallback font face declaration of JetBrains Mono.
+ * This fallback font uses Courier New, then fine tune it for ZLS (Zero Layout Shift).
+ */
+
+/* Normal */
+@font-face {
+  /* Font family name */
+  font-family: "JetBrains Mono Fallback";
+  /* Static Font */
+  font-weight: 400;
+  /* Style */
+  font-style: normal;
+  /* Modern preferred display, priortizing UX via FOUT. */
+  font-display: swap;
+
+  /* Metrics for ZLS */
+  size-adjust: 105.0%;
+  ascent-override: 102.4%;
+  descent-override: 25.6%;
+  line-gap-override: 0%;
+
+  /* Font files */
+  src:
+       /* Windows/General Monospace Fallback */
+       local("Courier New"),
+       local("CourierNew"),
+       local("CourierNewPSMT"),
+
+       /* macOS & iOS Monospace Fallback */
+       local("Courier New MT"),
+       local("Courier"),
+
+       /* Linux Monospace Fallback */
+       local("Liberation Mono"), /* Linux standard monospace */
+       local("LiberationMono"),
+       local("LiberationMono-Regular"),
+
+       /* Android Monospace Fallback */
+       local("Cousine"), /* Metric equivalent to Courier New/Liberation Mono */
+       local("Cousine-Regular"),
+       local("Cousine Regular");
+}
+
+/* Italic */
+@font-face {
+  /* Font family name */
+  font-family: "JetBrains Mono Fallback";
+  /* Static Font */
+  font-weight: 400;
+  /* Style */
+  font-style: italic;
+  /* Modern preferred display, priortizing UX via FOUT. */
+  font-display: swap;
+
+  /* Metrics for ZLS */
+  size-adjust: 105.0%;
+  ascent-override: 102.4%;
+  descent-override: 25.6%;
+  line-gap-override: 0%;
+
+  /* Font files */
+  src:
+       /* Windows/General Monospace Fallback */
+       local("Courier New Italic"),
+       local("CourierNewPS-ItalicMT"),
+       local("CourierNew-Italic"),
+
+       /* macOS & iOS Monospace Fallback */
+       local("Courier Oblique"),
+
+       /* Linux Monospace Fallback */
+       local("Liberation Mono Italic"),
+       local("LiberationMono-Italic"),
+
+       /* Android Monospace Fallback */
+       local("Cousine Italic"),
+       local("Cousine-Italic");
+}
+
+/* Bold */
+@font-face {
+  /* Font family name */
+  font-family: "JetBrains Mono Fallback";
+  /* Static Font */
+  font-weight: 700;
+  /* Style */
+  font-style: normal;
+  /* Modern preferred display, priortizing UX via FOUT. */
+  font-display: swap;
+
+  /* Metrics for ZLS */
+  size-adjust: 105.0%;
+  ascent-override: 102.4%;
+  descent-override: 25.6%;
+  line-gap-override: 0%;
+
+  /* Font files */
+  src:
+       /* Windows/General Monospace Fallback */
+       local("Courier New Bold"),
+       local("CourierNewPS-BoldMT"),
+       local("CourierNew-Bold"),
+
+       /* macOS & iOS Monospace Fallback */
+       local("Courier Bold"),
+
+       /* Linux Monospace Fallback */
+       local("Liberation Mono Bold"),
+       local("LiberationMono-Bold"),
+
+       /* Android Monospace Fallback */
+       local("Cousine Bold"),
+       local("Cousine-Bold");
+}
+
+/* Bold Italic */
+@font-face {
+  /* Font family name */
+  font-family: "JetBrains Mono Fallback";
+  /* Static Font */
+  font-weight: 700;
+  /* Style */
+  font-style: italic;
+  /* Modern preferred display, priortizing UX via FOUT. */
+  font-display: swap;
+
+  /* Metrics for ZLS */
+  size-adjust: 105.0%;
+  ascent-override: 102.4%;
+  descent-override: 25.6%;
+  line-gap-override: 0%;
+
+  /* Font files */
+  src:
+       /* Windows/General Monospace Fallback */
+       local("Courier New Bold Italic"),
+       local("CourierNewPS-BoldItalicMT"),
+       local("CourierNew-BoldItalic"),
+
+       /* macOS & iOS Monospace Fallback */
+       local("Courier Bold Oblique"),
+
+       /* Linux Monospace Fallback */
+       local("Liberation Mono Bold Italic"),
+       local("LiberationMono-BoldItalic"),
+
+       /* Android Monospace Fallback */
+       local("Cousine Bold Italic"),
+       local("Cousine-BoldItalic");
+}
+
+/**
+ * @description Font face declaration of Noto Math.
+ */
+
+/* Normal */
+@font-face {
+  /* Font family name */
+  font-family: "Noto Math";
+  /* Variable Font */
+  font-weight: 400 700;
+  /* Style */
+  font-style: normal;
+  /* Modern preferred display, priortizing UX via FOUT. */ 
+  font-display: swap;
+  
+  /* Font files */
+  src: url("/fonts/noto-math/noto-math-regular.woff2") format("woff2-variations"),    /* Modern preferred, least size. */
+       url("/fonts/noto-math/noto-math-regular.woff")  format("woff-variations"),     /* Stable and widely supported.  */
+       url("/fonts/noto-math/noto-math-regular.ttf")   format("truetype-variations"); /* Least preferred, high size.   */
+}
+
+}
+
+/**
+ * @description Font stack variables.
+ */
+:root {
+  /* Body font stack :-
+   * Main font :- Open Sans
+   * Fallback  :- Open Sans Fallback
+   * Others    :- system-ui, explicit fonts selected by system-ui
+   *              if it fails (for every system).
+   * Final     :- sans-serif
+   */
+  --font-stack-body:
+    /* Main font */
+    "Open Sans",
+    /* ZLS fallback font */
+    "Open Sans Fallback",
+    /* Generic system font */
+    system-ui,
+    /* macOS system font */
+    -apple-system, BlinkMacSystemFont,
+    /* Windows system font */
+    "Segoe UI",
+    /* Linux system font */
+    "Ubuntu", "Cantarell", "Fira Sans", "DejaVu Sans",
+    /* Android system font */
+    "Roboto", "Noto Sans",
+    /* Generics */
+    "Helvetica", "Arial",
+    /* Final fallback */
+    sans-serif;
+
+  /* Heading font stack :-
+   * Main font :- Montserrat
+   * Fallback  :- Montserrat Fallback
+   * Others    :- system-ui, explicit fonts selected by system-ui
+   *              if it fails (for every system).
+   * Final     :- sans-serif
+   */
+  --font-stack-heading:
+    /* Main font */
+    "Montserrat",
+    /* ZLS fallback font */
+    "Montserrat Fallback",
+    /* Generic system font */
+    system-ui,
+    /* macOS system font */
+    -apple-system, BlinkMacSystemFont,
+    /* Windows system font */
+    "Segoe UI",
+    /* Linux system font */
+    "Ubuntu", "Cantarell", "Fira Sans", "DejaVu Sans",
+    /* Android system font */
+    "Roboto", "Noto Sans",
+    /* Generics */
+    "Helvetica", "Arial",
+    /* Final fallback */
+    sans-serif;
+
+  /* Monospace font stack :-
+   * Main font :- JetBrains Mono
+   * Fallback  :- JetBrains Mono Fallback
+   * Others    :- ui-monospace, explicit fonts selected by ui-monospace
+   *              if it fails (for every system).
+   * Final     :- monospace
+   */
+  --font-stack-mono:
+    /* Main font */
+    "JetBrains Mono",
+    /* ZLS fallback font */
+    "JetBrains Mono Fallback",
+    /* Generic system font */
+    ui-monospace,
+    /* macOS system font */
+    "SF Mono", "Menlo", "Monaco",
+    /* Windows system font */
+    "Segoe UI Mono", "Cascadia Code", "Consolas",
+    /* Linux system font */
+    "Ubuntu Mono", "Fira Code", "Source Code Pro", "DejaVu Sans Mono",
+    /* Android system font */
+    "Roboto Mono", "Noto Sans Mono",
+    /* Generics */
+    "Courier New", "Courier",
+    /* Final fallback */
+    monospace;
+
+  /* Math font stack :-
+   * Main font :- Noto Math
+   * Fallback  :- Open Sans, Open Sans Fallback
+   * Others    :- system-ui, explicit fonts selected by system-ui
+   *              if it fails (for every system).
+   * Final     :- sans-serif
+   */
+  --font-stack-math:
+    /* Main font */
+    "Noto Math",
+    /* Fallback font */
+    "Open Sans", "Open Sans Fallback",
+    /* Generic system font */
+    system-ui,
+    /* macOS system font */
+    -apple-system, BlinkMacSystemFont,
+    /* Windows system font */
+    "Segoe UI",
+    /* Linux system font */
+    "Ubuntu", "Cantarell", "Fira Sans", "DejaVu Sans",
+    /* Android system font */
+    "Roboto", "Noto Sans",
+    /* Generics */
+    "Helvetica", "Arial",
+    /* Final fallback */
+    sans-serif;
+}
+
+/**
+ * @description Font integration with Tailwind.
+ */
+@theme inline {
+  /* Tailwind Overrides */
+  --font-sans: var(--font-stack-body);
+  --font-mono: var(--font-stack-mono);
+
+  /* Custom */
+  --font-body:    var(--font-stack-body);
+  --font-heading: var(--font-stack-heading);
+  --font-code:    var(--font-stack-mono);
+  --font-math:    var(--font-stack-math);
+}
+

@@ -107,48 +107,23 @@
 
 /**
  * @description Line height.
- * For older browsers, we have make compromise, and use unit-based line heights.
- * This shouldn't give problems, as we use it as utility anyways.
  */
 :root {
-  /* For display/giant Text: 1.1 -> 1.05 */
-  --lh-none: clamp(1.05rem, 1.1143rem - 0.0446vw, 1.1rem);
-  /* For subheaders: 1.3 -> 1.4 */
-  --lh-snug: clamp(1.3rem, 1.2714rem + 0.0893vw, 1.4rem);
-  /* For headings: 1.2 -> 1.1 (Tightens as it gets huge) */
-  --lh-tight: clamp(1.1rem, 1.2286rem - 0.0893vw, 1.2rem);
-  /* For body/small text: 1.5 -> 1.7 (Adds air as text gets larger) */
-  --lh-normal: clamp(1.5rem, 1.4429rem + 0.1786vw, 1.7rem);
-  /* For spaciously relaxed text: 1.725 -> 1.95 */
-  --lh-relaxed: calc(var(--lh-normal) * 1.15);
-  /* For spaciously loose text: 1.875 -> 2.125 */
-  --lh-loose: calc(var(--lh-normal) * 1.25);
+  /* For display/giant Text */
+  --lh-none: 1.1;
+  /* For subheaders */
+  --lh-snug: 1.3;
+  /* For headings */
+  --lh-tight: 1.15;
+  /* For body/small text */
+  --lh-normal: 1.55;
+  /* For spaciously relaxed text */
+  --lh-relaxed: 1.75;
+  /* For spaciously loose text */
+  --lh-loose: 2.0;
 
-  /* For code/monospace text: 1.45 -> 1.6 */
-  --lh-code: clamp(1.45rem, 1.4071rem + 0.2143vw, 1.6rem);
-}
-
-/**
- * If browser supports unit-cancellation.
- */
-@supports (line-height: calc(1px / 1px)) {
-  :root {
-    /* For display/giant Text: 1.1 -> 1.05 */
-    --lh-none: clamp(1.05rem, 1.1143rem - 0.0446vw, 1.1rem);
-    /* For headings: 1.2 -> 1.1 (Tightens as it gets huge) */
-    --lh-tight: clamp(1.1rem, 1.2286rem - 0.0893vw, 1.2rem);
-    /* For subheaders: 1.3 -> 1.4 */
-    --lh-snug: clamp(1.3rem, 1.2714rem + 0.0893vw, 1.4rem);
-    /* For body/small text: 1.5 -> 1.7 (Adds air as text gets larger) */
-    --lh-normal: clamp(1.5rem, 1.4429rem + 0.1786vw, 1.7rem);
-    /* For spaciously relaxed text: 1.725 -> 1.95 */
-    --lh-relaxed: calc(var(--lh-normal) * 1.15);
-    /* For spaciously loose text: 1.875 -> 2.125 */
-    --lh-loose: calc(var(--lh-normal) * 1.25);
-
-    /* For code/monospace text: 1.45 -> 1.6 */
-    --lh-code: clamp(1.45rem, 1.4071rem + 0.2143vw, 1.6rem);
-  }
+  /* For code/monospace text */
+  --lh-code: 1.4;
 }
 
 /**
@@ -246,6 +221,9 @@
 @utility flow {
   /* Flow spacing */
   --flow-space: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 
   & > * + * {
     margin-top: var(--flow-space);

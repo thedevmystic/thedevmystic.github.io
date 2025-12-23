@@ -1,0 +1,165 @@
+/**
+ * Copyright 2025 Suryansh Singh
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * ------------------------------------------------------------------------------------------------------
+ *
+ * @path [ROOT]/src/styles/typography.css
+ * @file typography.css
+ * @description CSS file for base default typography styling with TailwindCSS.
+ *
+ * @author thedevmystic (Surya)
+ * @copyright 2025 Suryansh Singh Apache-2.0 License
+ *
+ * SPDX-FileCopyrightText: 2025 Suryansh Singh
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+@layer base {
+
+/**
+ * @description HTML styling.
+ */
+html {
+  /* Global border box */
+  box-sizing: border-box;
+  /* 100% font size, as fluid clamp calculations are based on 1rem = 16px */
+  font-size: 100%;
+  /* Adjust text size to 100%, so 1rem = 16px by default */
+  text-size-adjust: 100%;
+  /* Default line height */
+  line-height: var(--lh-normal);
+
+  /* Font smoothing */
+  -webkit-font-smoothing: antialiased; /* macOS/iOS smooth rendering */
+  -moz-osx-font-smoothing: grayscale;  /* Firefox/linux smooth rendering */
+
+  /* Default bg & fg color */
+  background-color: var(--color-base-raw);
+  color: var(--color-body-raw);
+
+  /* Turn default numeric property to maximum clarity and readiblity */
+  font-variant-numeric: oldstyle-nums      /* Old style numericals with asce/desc */
+                        proportional-nums  /* Proportianal/variable spacing */
+			slashed-zero       /* Slashed zero to distinguish 0 and O */
+			ordinal            /* Ordinal numbers has a raised glyph */
+                        stacked-fractions; /* Stacked fractions for readiblity */
+  /* Turn normal capitalization, override for headings (optionated) */
+  font-variant-caps: normal;
+  /* Turn on liga, clig and calt ligatures by default */
+  font-variant-ligatures: normal;
+  /* Turn on default positioning */
+  font-variant-position: normal;
+  /* Turn font kerning to normal as default */
+  font-kerning: normal;
+  /* Ensures long words wrap correctly to prevent horizontal scrolling when users zoom text */
+  overflow-wrap: break-word;
+  /* Add hyphen, when needed */
+  hyphens: auto;
+
+  /* Default font family, font weight & styles */
+  /* Body font stack */
+  font-family: var(--font-stack-body);
+  /* Regular: 400 */
+  font-weight: 400;
+  /* Normal */
+  font-style:  normal;
+
+  /* Prevents unwanted scroll chaining (background scrolling) */
+  overscroll-behavior-y: none;
+  /* Set touch action to auto, we'll override it for mobile */
+  touch-action: auto;
+
+  /* Scroll behavior */
+  scroll-behavior: smooth;
+  /* Remove touch highlight color on Safari & Firefox */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/**
+ * @description Global box sizing.
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * @description Reduce overall motion for people preferring "reduce motion".
+ */
+@media screen and (prefers-reduced-motion: reduce) {
+  /* Turn off scroll behavior auto */
+  html { scroll-behavior: auto !important; }
+
+  /* Minimize transitions and animations. */
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/**
+ * @description Base focus reset.
+ */
+*:focus, *:focus-visible {
+  /* Remove the outline first */
+  outline: none;
+
+  /* Add shadow ring */
+  box-shadow: 0 0 0 2px var(--color-base-raw),
+              0 0 0 4px var(--color-focus-raw);
+}
+
+/**
+ * @description Remove box-shadow if focus visible is supported.
+ */
+@supports selector(:focus-visible) {
+  *:focus {
+    /* Remove the box shadow */
+    box-shadow: none;
+  }
+}
+
+/**
+ * @description Adjustments for operating systems using "Forced Colors" mode (e.g., Windows High Contrast Mode - WHCM).
+ * This ensures focus rings and borders remain visible when custom colors are overridden by the system.
+ */
+@media screen and (forced-colors: active) {
+  /* Use the system's focus color for guaranteed visibility of the outline */
+  *:focus,
+  *:focus-visible {
+    forced-color-adjust: none;
+    outline: 2px solid Highlight !important;
+    /* Force background and border to transparent/system colors to prevent weird color blocks */
+    background-color: transparent !important;
+    border-color: transparent !important;
+  }
+
+  /* Use system link colors to ensure they stand out */
+  a {
+    color: LinkText;
+  }
+}
+
+/**
+ * @description Override touch action for mobile.
+ */
+@media screen and (max-width: 30rem) {
+  html {
+    touch-action: manipulation;
+  }
+}
+

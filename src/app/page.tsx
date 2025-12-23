@@ -27,6 +27,9 @@ export default function Home() {
           <p className="text-lg text-paragraph leading-normal">
             Beyond mere aesthetics, the integration of <span className="font-mono bg-code px-1 rounded">fluid-typography.css</span> creates a responsive environment where mathematical scaling governs every element. This ensures that the vertical rhythm and component spacing adapt harmoniously across all viewport dimensions without manual breakpoint intervention.
           </p>
+          <p className="text-lg text-paragraph leading-normal">
+	    The typographic scales are based on Utopia. Creating a harmonious, and modular scaled typographic rhythming. Which in turn, creates a beautiful website.
+          </p>
         </section>
 
         <section className="bg-feature rounded-3xl p-md-lg border border-accent/10 flow">
@@ -74,6 +77,22 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <section className="bg-feature rounded-3xl p-md-lg border border-accent/10 flow">
+          <div className="flex items-center gap-3 mb-md">
+            <div className="h-2 w-8 bg-accent rounded-full" />
+            <h2 className="text-2xl font-heading font-bold text-heading">Scale Test</h2>
+          </div>
+
+          <div className="p-md bg-base rounded-xl border border-accent/5 flow">
+            <h1> Heading One </h1>
+            <h2> Heading Two </h2>
+            <h3> Heading Three </h3>
+            <h4> Heading Four </h4>
+            <h5> Heading Five </h5>
+            <h6> Heading Six </h6>
+	  </div>
+	</section>
 
         <div className="grid-main">
           <section className="col-span-12 lg:col-span-8 flow">

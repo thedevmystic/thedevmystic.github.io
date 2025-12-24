@@ -47,7 +47,8 @@
     "rimraf": "^6.1.2",
     "serwist": "^9.0.0",
     "tailwindcss": "^4.1.17",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.50.1"
   },
   "author": {
     "name": "Suryansh Singh (thedevmystic)",

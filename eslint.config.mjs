@@ -4,7 +4,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      https://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,51 +25,71 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { defineConfig, globalIgnores } from "eslint/config";
+import { globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 
-import react from "eslint-plugin-react";
-import jsxA11y from "eslint-plugin-jsx-a11y";
-import typescriptEslint from "@typescript-eslint/eslint-plugin";
+import tseslint from "typescript-eslint";
 import importPlugin from "eslint-plugin-import";
 
 /**
- * @description Path to the tsconfig file (important for type-aware linting)
+ * @description Path resolutions using native ESM URL API
  */
 const tsconfigPath = "./tsconfig.json";
+const tsconfigRootDir = new URL(".", import.meta.url).pathname;
 
-const eslintConfig = defineConfig([
-  // Base configuration recommended by Next.js for core web vitals
+const eslintConfig = tseslint.config(
+  // 1. Global Ignores (This must be first)
+  {
+    ignores: [
+      ".next/**",
+      "out/**",
+      "build/**",
+      "next-env.d.ts",
+      "app/sw.ts",
+      "eslint.config.mjs" // Avoid linting the config with typed rules
+    ]
+  },
+
+  // 2. Base configuration recommended by Next.js
   ...nextVitals,
-  
-  // Next.js TypeScript rules (must come before other TS plugins)
   ...nextTs,
 
+  // 3. TypeScript Rules (Typed)
+  // We apply these specifically to source files to avoid the error you saw
+  ...tseslint.configs.recommendedTypeChecked.map((config) => ({
+    ...config,
+    files: ["**/*.ts", "**/*.tsx"],
+  })),
+
+  // 4. Main Project Configuration
   {
     files: ["**/*.{js,jsx,ts,tsx}"],
     plugins: {
-      // Add all necessary plugins
-      react: react,
-      "jsx-a11y": jsxA11y,
-      "@typescript-eslint": typescriptEslint,
       import: importPlugin,
     },
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        project: tsconfigPath,
+        tsconfigRootDir: tsconfigRootDir,
+      },
+    },
     rules: {
-      // Enforce rules for React components and hooks
+      // --- React Rules ---
       "react/jsx-key": "error",
       "react/no-unescaped-entities": "error",
       "react/jsx-no-target-blank": "error",
       "react/self-closing-comp": ["error", { component: true, html: true }],
-      "react/jsx-uses-react": "off", // Not needed with React 17+ JSX transform
-      "react/react-in-jsx-scope": "off", // Not needed with React 17+ JSX transform
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
 
-      // Enforce best practices for accessibility
-      ...jsxA11y.configs.recommended.rules,
+      // --- Accessibility Rules ---
       "jsx-a11y/alt-text": ["warn", { elements: ["img"] }],
-      
-      "import/no-unresolved": "error", // Ensure all imports resolve
-      "import/order": [ // Enforce consistent import order
+
+      // --- Import Rules ---
+      "import/no-unresolved": "error",
+      "import/order": [
         "warn",
         {
           groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
@@ -82,9 +102,16 @@ const eslintConfig = defineConfig([
         },
       ],
 
-      "no-console": ["warn", { allow: ["warn", "error"] }], // Allow only warn/error console logs
-      "prefer-const": "error", // Use const by default
+      // --- General Rules ---
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+      "prefer-const": "error",
       "max-len": ["warn", { code: 120, ignoreUrls: true, ignoreComments: true }],
+
+      // --- TypeScript Overrides ---
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/await-thenable": "error",
     },
     settings: {
       react: { version: "detect" },
@@ -98,48 +125,6 @@ const eslintConfig = defineConfig([
       },
     },
   },
-  
-  {
-    files: ["**/*.ts", "**/*.tsx"],
-    extends: [
-      // Recommended TypeScript rules
-      typescriptEslint.configs.recommended,
-      // TypeScript specific rules that require type information
-      typescriptEslint.configs.recommendedTypeChecked, 
-    ].map(config => ({
-        ...config,
-        languageOptions: {
-          ...config.languageOptions,
-          parserOptions: {
-            project: tsconfigPath,
-            tsconfigRootDir: __dirname,
-          },
-        },
-      })),
-    // Type-aware rules need a special parser configuration
-    languageOptions: {
-      parserOptions: {
-        project: tsconfigPath,
-        tsconfigRootDir: __dirname,
-      },
-    },
-    rules: {
-      // Example TypeScript strictness rules
-      "@typescript-eslint/explicit-function-return-type": "off", // Often too verbose
-      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
-      "@typescript-eslint/no-floating-promises": "error", // Crucial for robustness
-    },
-  },
-
-  globalIgnores([
-    // Next.js default build/output folders
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts", 
-    "app/sw.ts",
-  ]),
-]);
+);
 
 export default eslintConfig;
-

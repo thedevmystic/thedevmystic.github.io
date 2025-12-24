@@ -207,8 +207,6 @@ h4, h5, h6,
   font-style: normal;
   /* Font weight */
   font-weight: 700;
-  /* Line height */
-  line-height: var(--lh-tight);
 
   /* Font features */
   /* Numeric features */
@@ -293,5 +291,11 @@ h6, .zeta {
   /* Letter spacing */
   letter-spacing: 0em;
 }
+
+/* ==========================================================
+    Heading
+   ---------------------------------------------------------- */
+
+
 
 }

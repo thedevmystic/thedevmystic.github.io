@@ -229,7 +229,7 @@ h1, .alpha {
   /* Line height */
   line-height: var(--lh-none);
   /* Letter spacing */
-  letter-spacing: -0.05em;
+  letter-spacing: -0.025em;
 }
 
 /**
@@ -293,9 +293,168 @@ h6, .zeta {
 }
 
 /* ==========================================================
-    Heading
+    Paragraph
    ---------------------------------------------------------- */
 
+/**
+ * @description Paragraph styling.
+ */
+p {
+  /* Use the body step as the base */
+  font-size: var(--step-0);
+  line-height: var(--lh-normal);
 
+  /* The "Measure": Keep line length between 45-75 characters for readability */
+  max-width: 70ch;
+
+  /* Hanging punctuation for a cleaner left edge (optical alignment) */
+  hanging-punctuation: first last;
+
+  /* Overflow */
+  overflow-wrap: break-word;
+  hyphens: auto;
+
+  /* Paragraph Color */
+  color: var(--color-paragraph-raw);
+}
+
+/**
+ * @description Lead/Intro word styling.
+ */
+.lead {
+  /* Larger font size */
+  font-size: var(--step-1);
+  /* Body paragaraph color */
+  color: var(--color-body-raw);
+  /* Slighly higher font weight */
+  font-weight: 450;
+}
+
+/**
+ * @description Fine print or small metadata.
+ */
+small, .caption {
+  font-size: var(--step--2);
+  line-height: var(--lh-snug);
+  color: var(--color-caption-raw);
+}
+
+/* ==========================================================
+    Links & Anchors
+   ---------------------------------------------------------- */
+
+/**
+ * @description Global anchor styling.
+ * Focused on accessibility, intent, and clear affordance.
+ */
+a {
+  color: var(--color-link-raw);
+  text-decoration: underline;
+  /* Offset the underline for better readability of descenders (g, j, p, q, y) */
+  text-underline-offset: 0.125em;
+  text-decoration-thickness: 1px;
+  
+  /* Smooth transition for hover states */
+  transition: color 200ms ease-in-out, text-decoration-color 200ms ease-in-out;
+}
+
+/**
+ * @description Hover & Active states.
+ */
+a:hover {
+  color: var(--color-hover-raw);
+}
+
+/**
+ * @description External link affordance.
+ * Adds a small visual hint if the link goes off-site.
+ */
+a[target="_blank"]::after {
+  content: " \2197";
+  font-size: 0.85em;
+  transform: translateY(-0.25em);
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* ==========================================================
+    Lists (Unordered & Ordered)
+   ---------------------------------------------------------- */
+
+/**
+ * @description List styling.
+ */
+ul, ol {
+  max-width: 70ch;
+  padding-inline-start: 1.5rem;
+  list-style-position: outside;
+  color: var(--color-paragraph-raw);
+}
+
+li {
+  line-height: var(--lh-normal);
+  overflow-wrap: break-word;
+  color: var(--color-paragraph-raw);
+  position: relative; /* Necessary for SVG positioning */
+  margin-block-end: 0.5em;
+}
+
+/**
+ * @description Unordered list - Primary Level (Hexagon)
+ */
+ul {
+  list-style-type: none; /* Hide default dots */
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  left: -1.5rem;
+  top: 0.35em; /* Aligns with the first line of text */
+  width: 0.85rem;
+  height: 0.85rem;
+  background-color: var(--color-caption-raw); /* Colors the SVG via mask */
+  transform: translateY(1.5px);
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 4.5v11L12 22l-9-4.5v-11z"/></svg>') no-repeat center;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 4.5v11L12 22l-9-4.5v-11z"/></svg>') no-repeat center;
+}
+
+/**
+ * @description Nested unordered list (Modern Arrow)
+ */
+ul ul {
+  list-style-type: none;
+  margin-block: 0.5em;
+  padding-inline-start: 1.25rem;
+}
+
+ul ul li::before {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--color-caption-raw); /* Colors the SVG via mask */
+  transform: translateY(2px);
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>') no-repeat center;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>') no-repeat center;
+}
+
+/**
+ * @description Ordered list.
+ */
+ol {
+  list-style-type: decimal-leading-zero;
+}
+
+ol ol {
+  list-style-type: lower-roman;
+  margin-block: 0.5em;
+}
+
+li::marker {
+  color: var(--color-caption-raw);
+  font-family: var(--font-stack-mono);
+  font-variant-numeric: tabular-nums lining-nums;
+  unicode-bidi: isolate;
+}
 
 }
+

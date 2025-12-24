@@ -18,17 +18,17 @@ export default function Home() {
         </header>
 
         <section className="py-lg flow">
-          <h1 className="text-4xl font-heading font-bold tracking-tight text-heading leading-tight">
+	  <h1>
               Design System & Typography Test
           </h1>
-          <p className="text-lg text-paragraph leading-normal">
-            The architecture of this design system prioritizes visual stability and technical performance through advanced CSS strategies. By leveraging <span className="font-mono bg-code px-1 rounded">variable font faces</span> and precise metric overrides, we ensure that the transition between system fallbacks and custom typefaces remains virtually imperceptible to the end user.
+	  <p>
+            <span className="lead">The</span> architecture of this design system prioritizes visual stability and technical performance through advanced CSS strategies. By leveraging <span className="font-mono bg-code px-1 rounded">variable font faces</span> and precise metric overrides, we ensure that the transition between system fallbacks and custom typefaces remains virtually imperceptible to the end user.
           </p>
-          <p className="text-lg text-paragraph leading-normal">
+	  <p>
             Beyond mere aesthetics, the integration of <span className="font-mono bg-code px-1 rounded">fluid-typography.css</span> creates a responsive environment where mathematical scaling governs every element. This ensures that the vertical rhythm and component spacing adapt harmoniously across all viewport dimensions without manual breakpoint intervention.
           </p>
-          <p className="text-lg text-paragraph leading-normal">
-	    The typographic scales are based on Utopia. Creating a harmonious, and modular scaled typographic rhythming. Which in turn, creates a beautiful website.
+	  <p>
+	    The typographic scales are based on Utopia. Creating a harmonious, and modular scaled typographic rhythming. Which in turn, creates a beautiful website. We got quite beautiful link too, like <a href="#">a cool link</a>, and of course <a href="https://github.com/thedevmystic" target="_blank">my GitHub profile</a>.
           </p>
         </section>
 
@@ -91,6 +91,45 @@ export default function Home() {
             <h4> Heading Four </h4>
             <h5> Heading Five </h5>
             <h6> Heading Six </h6>
+	  </div>
+	</section>
+
+        <section className="bg-feature rounded-3xl p-md-lg border border-accent/10 flow">
+          <div className="flex items-center gap-3 mb-md">
+            <div className="h-2 w-8 bg-accent rounded-full" />
+            <h2 className="text-2xl font-heading font-bold text-heading">Lists</h2>
+          </div>
+
+          <div className="p-md bg-base rounded-xl border border-accent/5 flow">
+	    <ol>
+	      <li>Item 1</li>
+	      <li>Item 2</li>
+	      <li>Item 3</li>
+	      <li>Item 4</li>
+	      <li>Item 5</li>
+	        <ol>
+		  <li>Item 6</li>
+		  <li>Item 7</li>
+		  <li>Item 8</li>
+		  <li>Item 9</li>
+		  <li>Item 10</li>
+		</ol>
+	    </ol>
+
+	    <ul>
+	      <li>Item 1</li>
+	      <li>Item 2</li>
+	      <li>Item 3</li>
+	      <li>Item 4</li>
+	      <li>Item 5</li>
+	        <ul>
+		  <li>Item 6</li>
+		  <li>Item 7</li>
+		  <li>Item 8</li>
+		  <li>Item 9</li>
+		  <li>Item 10</li>
+		</ul>
+	    </ul>
 	  </div>
 	</section>
 

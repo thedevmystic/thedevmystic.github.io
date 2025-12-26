@@ -582,5 +582,39 @@ blockquote cite::before {
   content: "\2014 \00A0"; /* Em-dash */
 }
 
+/* ==========================================================
+    Horizontal Rule
+   ---------------------------------------------------------- */
+
+/**
+ * @description Horizontal rule styling.
+ */
+hr {
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-accent-raw),
+    var(--color-accent-raw)
+  );
+  background-position: 0 50%;
+  background-repeat: repeat-x;
+  background-size: 100% 2px;
+
+  border: 0;
+  height: 2px;
+
+  margin: var(--space-md) 0;
+}
+
+hr.article {
+  /* 80% width, and center aligned */
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-size: 100% 1px;
+  height: 1px;
+  opacity: 0.6;
+}
+
 }
 

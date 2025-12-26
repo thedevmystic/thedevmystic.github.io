@@ -133,6 +133,27 @@ export default function Home() {
 	  </div>
 	</section>
 
+        <section className="bg-feature rounded-3xl p-md-lg border border-accent/10 flow">
+          <div className="flex items-center gap-3 mb-md">
+            <div className="h-2 w-8 bg-accent rounded-full" />
+            <h2 className="text-2xl font-heading font-bold text-heading">Blockquotes</h2>
+          </div>
+
+          <div className="p-md bg-base rounded-xl border border-accent/5 flow">
+	    <blockquote>
+              <p>Good design is a lot like clear thinking made visual.</p>
+              <cite>Edward Tufte</cite>
+            </blockquote>
+	  </div>
+
+          <div className="p-md bg-base rounded-xl border border-accent/5 flow">
+	    <blockquote>
+              <p>Fuck you, NVIDIA!</p>
+              <cite>Linus Torvalds</cite>
+            </blockquote>
+	  </div>
+	</section>
+
         <div className="grid-main">
           <section className="col-span-12 lg:col-span-8 flow">
             <h2 className="text-2xl font-bold text-heading">Brand Palette</h2>

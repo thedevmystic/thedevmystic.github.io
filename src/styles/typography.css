@@ -537,5 +537,50 @@ ol li::marker {
   unicode-bidi: isolate;
 }
 
+/* ==========================================================
+    Blockquotes
+   ---------------------------------------------------------- */
+
+/**
+ * @description Blockquote styling.
+ */
+blockquote {
+  /* Horizontal alignment & Measure */
+  margin-inline: 0;
+  max-width: 70ch;
+
+  /* Internal spacing and visual accent */
+  padding-inline-start: 1.5rem;
+  border-inline-start: 3px solid var(--color-accent-raw);
+
+  /* Typography */
+  font-family: var(--font-stack-body);
+  color: var(--color-body-raw);
+}
+
+/**
+ * @description The quote text.
+ */
+blockquote p {
+  font-family: var(--font-stack-heading);
+  font-style: italic;
+}
+
+/**
+ * @description The attribution.
+ */
+blockquote cite {
+  display: block;
+  font-style: normal;
+  font-weight: 500;
+  font-size: var(--step--1);
+  color: var(--color-caption-raw);
+  margin-block-start: 0.75rem;
+}
+
+blockquote cite::before {
+  content: "\2014 \00A0"; /* Em-dash */
+}
+
 }
 

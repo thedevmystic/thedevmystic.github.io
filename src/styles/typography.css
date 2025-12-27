@@ -1,0 +1,620 @@
+/**
+ * Copyright 2025 Suryansh Singh
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * ------------------------------------------------------------------------------------------------------
+ *
+ * @path [ROOT]/src/styles/typography.css
+ * @file typography.css
+ * @description CSS file for base default typography styling with TailwindCSS.
+ *
+ * @author thedevmystic (Surya)
+ * @copyright 2025 Suryansh Singh Apache-2.0 License
+ *
+ * SPDX-FileCopyrightText: 2025 Suryansh Singh
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+@layer base {
+
+/* ==========================================================
+    HTML
+   ---------------------------------------------------------- */
+
+/**
+ * @description HTML styling.
+ */
+html {
+  /* Global border box */
+  box-sizing: border-box;
+  /* 100% font size, as fluid clamp calculations are based on 1rem = 16px */
+  font-size: 100%;
+  /* Adjust text size to 100%, so 1rem = 16px by default */
+  text-size-adjust: 100%;
+  /* Default line height */
+  line-height: var(--lh-normal);
+
+  /* Font smoothing */
+  -webkit-font-smoothing: antialiased; /* macOS/iOS smooth rendering */
+  -moz-osx-font-smoothing: grayscale;  /* Firefox/linux smooth rendering */
+
+  /* Default bg & fg color */
+  background-color: var(--color-base-raw);
+  color: var(--color-body-raw);
+
+  /* Turn default numeric property to maximum clarity and readiblity */
+  font-variant-numeric: oldstyle-nums      /* Old style numericals with asce/desc */
+                        proportional-nums  /* Proportianal/variable spacing */
+			slashed-zero       /* Slashed zero to distinguish 0 and O */
+			ordinal            /* Ordinal numbers has a raised glyph */
+                        stacked-fractions; /* Stacked fractions for readiblity */
+  /* Turn normal capitalization, override for headings (optionated) */
+  font-variant-caps: normal;
+  /* Turn on liga, clig and calt ligatures by default */
+  font-variant-ligatures: normal;
+  /* Turn on default positioning */
+  font-variant-position: normal;
+  /* Turn font kerning to normal as default */
+  font-kerning: normal;
+  /* Ensures long words wrap correctly to prevent horizontal scrolling when users zoom text */
+  overflow-wrap: break-word;
+  /* Add hyphen, when needed */
+  hyphens: auto;
+
+  /* Default font family, font weight & styles */
+  /* Body font stack */
+  font-family: var(--font-stack-body);
+  /* Regular: 400 */
+  font-weight: 400;
+  /* Normal */
+  font-style:  normal;
+
+  /* Prevents unwanted scroll chaining (background scrolling) */
+  overscroll-behavior-y: none;
+  /* Set touch action to auto, we'll override it for mobile */
+  touch-action: auto;
+
+  /* Scroll behavior */
+  scroll-behavior: smooth;
+  /* Remove touch highlight color on Safari & Firefox */
+  -webkit-tap-highlight-color: transparent;
+
+  /* Min height */
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/**
+ * @description Global box sizing.
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * @description Reduce overall motion for people preferring "reduce motion".
+ */
+@media screen and (prefers-reduced-motion: reduce) {
+  /* Turn off scroll behavior auto */
+  html { scroll-behavior: auto !important; }
+
+  /* Minimize transitions and animations. */
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/**
+ * @description Base focus reset.
+ */
+*:focus, *:focus-visible {
+  /* Remove the outline first */
+  outline: none;
+
+  /* Add shadow ring */
+  box-shadow: 0 0 0 2px var(--color-base-raw),
+              0 0 0 4px var(--color-focus-raw);
+}
+
+/**
+ * @description Remove box-shadow if focus visible is supported.
+ */
+@supports selector(:focus-visible) {
+  *:focus {
+    /* Remove the box shadow */
+    box-shadow: none;
+  }
+}
+
+/**
+ * @description Adjustments for operating systems using "Forced Colors" mode (e.g., Windows High Contrast Mode - WHCM).
+ * This ensures focus rings and borders remain visible when custom colors are overridden by the system.
+ */
+@media screen and (forced-colors: active) {
+  /* Use the system's focus color for guaranteed visibility of the outline */
+  *:focus,
+  *:focus-visible {
+    forced-color-adjust: none;
+    outline: 2px solid Highlight !important;
+    /* Force background and border to transparent/system colors to prevent weird color blocks */
+    background-color: transparent !important;
+    border-color: transparent !important;
+  }
+
+  /* Use system link colors to ensure they stand out */
+  a {
+    color: LinkText;
+  }
+}
+
+/**
+ * @description Override touch action for mobile.
+ */
+@media screen and (max-width: 30rem) {
+  html {
+    touch-action: manipulation;
+  }
+}
+
+/* ==========================================================
+    Body
+   ---------------------------------------------------------- */
+
+/**
+ * @description Body styling.
+ */
+body {
+  /* Font */
+  font-family: var(--font-stack-body);
+  font-size: var(--step-0);
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--lh-normal);
+
+  /* Bg & fg colors */
+  background-color: var(--color-base-raw);
+  color: var(--color-body-raw);
+}
+
+/* ==========================================================
+    Heading
+   ---------------------------------------------------------- */
+
+/**
+ * @description Heading styling.
+ */
+h1, h2, h3,
+h4, h5, h6,
+.alpha, .beta, .gamma,
+.delta, .epsilon, .zeta {
+  /* Font family */
+  font-family: var(--font-stack-heading);
+  /* Style */
+  font-style: normal;
+  /* Font weight */
+  font-weight: 700;
+
+  /* Font features */
+  /* Numeric features */
+  font-variant-numeric: lining-nums        /* Lining style numericals with consistent height*/
+                        proportional-nums  /* Proportianal/variable spacing */
+			slashed-zero       /* Slashed zero to distinguish 0 and O */
+			ordinal            /* Ordinal numbers has a raised glyph */
+                        stacked-fractions; /* Stacked fractions for readiblity */
+
+  /* Color */
+  color: var(--color-heading-raw);
+}
+
+/**
+ * @description H1 specific styles.
+ */
+h1, .alpha {
+  /* Font size */
+  font-size: var(--step-5);
+  /* Line height */
+  line-height: var(--lh-none);
+  /* Letter spacing */
+  letter-spacing: -0.025em;
+}
+
+/**
+ * @description H2 specific styles.
+ */
+h2, .beta {
+  /* Font size */
+  font-size: var(--step-4);
+  /* Line height */
+  line-height: var(--lh-tight);
+  /* Letter spacing */
+  letter-spacing: -0.025em;
+}
+
+/**
+ * @description H3 specific styles.
+ */
+h3, .gamma {
+  /* Font size */
+  font-size: var(--step-3);
+  /* Line height */
+  line-height: var(--lh-tight);
+  /* Letter spacing */
+  letter-spacing: -0.02em;
+}
+
+/**
+ * @description H4 specific styles.
+ */
+h4, .delta {
+  /* Font size */
+  font-size: var(--step-2);
+  /* Line height */
+  line-height: var(--lh-snug);
+  /* Letter spacing */
+  letter-spacing: 0em;
+}
+
+/**
+ * @description H5 specific styles.
+ */
+h5, .epsilon {
+  /* Font size */
+  font-size: var(--step-1);
+  /* Line height */
+  line-height: var(--lh-snug);
+  /* Letter spacing */
+  letter-spacing: 0em;
+}
+
+/**
+ * @description H6 specific styles.
+ */
+h6, .zeta {
+  /* Font size */
+  font-size: var(--step-0);
+  /* Line height */
+  line-height: var(--lh-normal);
+  /* Letter spacing */
+  letter-spacing: 0em;
+}
+
+/* ==========================================================
+    Paragraph
+   ---------------------------------------------------------- */
+
+/**
+ * @description Paragraph styling.
+ */
+p {
+  /* Use the body step as the base */
+  font-size: var(--step-0);
+  line-height: var(--lh-normal);
+
+  /* The "Measure": Keep line length between 45-75 characters for readability */
+  max-width: 70ch;
+
+  /* Hanging punctuation for a cleaner left edge (optical alignment) */
+  hanging-punctuation: first last;
+
+  /* Overflow */
+  overflow-wrap: break-word;
+  hyphens: auto;
+
+  /* Paragraph Color */
+  color: var(--color-paragraph-raw);
+}
+
+/**
+ * @description Lead/Intro word styling.
+ */
+.lead {
+  /* Larger font size */
+  font-size: var(--step-1);
+  /* Body paragaraph color */
+  color: var(--color-body-raw);
+  /* Slighly higher font weight */
+  font-weight: 450;
+}
+
+/**
+ * @description Fine print or small metadata.
+ */
+small, .caption {
+  font-size: var(--step--2);
+  line-height: var(--lh-snug);
+  color: var(--color-caption-raw);
+}
+
+/* ==========================================================
+    Links & Anchors
+   ---------------------------------------------------------- */
+
+/**
+ * @description Global anchor styling.
+ * Focused on accessibility, intent, and clear affordance.
+ */
+a {
+  color: var(--color-link-raw);
+  text-decoration: underline;
+  /* Offset the underline for better readability of descenders (g, j, p, q, y) */
+  text-underline-offset: 0.125em;
+  text-decoration-thickness: 1px;
+  
+  /* Smooth transition for hover states */
+  transition: color 200ms ease-in-out, text-decoration-color 200ms ease-in-out;
+}
+
+/**
+ * @description Hover & Active states.
+ */
+a:hover {
+  color: var(--color-hover-raw);
+}
+
+/**
+ * @description External link affordance.
+ * Adds a small visual hint if the link goes off-site.
+ */
+a[target="_blank"]::after {
+  content: " \2197";
+  font-size: 0.85em;
+  transform: translateY(-0.25em);
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* ==========================================================
+    Lists (Unordered & Ordered)
+   ---------------------------------------------------------- */
+
+/**
+ * @description List styling.
+ */
+ul, ol {
+  max-width: 70ch;
+  padding-inline-start: 1.5rem;
+  color: var(--color-paragraph-raw);
+}
+
+/**
+ * @description Base list item typography
+ */
+li {
+  font-size: var(--step-0);
+  line-height: var(--lh-normal);
+  overflow-wrap: break-word;
+  color: var(--color-paragraph-raw);
+  margin-block-end: 0.5em;
+}
+
+/**
+ * @description Unordered list reset
+ */
+ul {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+/**
+ * @description UL list item layout
+ * Uses grid to create a true gutter without marker drift
+ */
+ul li {
+  display: grid;
+  grid-template-columns: 1.1rem 1fr;
+  column-gap: 0.4rem;
+  align-items: start;
+}
+
+/**
+ * @description Base UL marker (hexagon)
+ * Vertically centered against first line using line-height math
+ */
+ul li::before {
+  content: "";
+  width: 0.85rem;
+  height: 0.85rem;
+
+  margin-top: calc(
+    (1em * var(--lh-normal) - 0.85rem) / 2
+  );
+
+  margin-inline-start: -0.25rem;
+
+  background-color: var(--color-caption-raw);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+
+  mask-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" \
+fill="none" stroke="black" stroke-width="3" \
+stroke-linecap="round" stroke-linejoin="round">\
+<path d="M12 2l9 4.5v11L12 22l-9-4.5v-11z"/>\
+</svg>');
+
+  -webkit-mask-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" \
+fill="none" stroke="black" stroke-width="3" \
+stroke-linecap="round" stroke-linejoin="round">\
+<path d="M12 2l9 4.5v11L12 22l-9-4.5v-11z"/>\
+</svg>');
+}
+
+/**
+ * @description Nested unordered list spacing
+ */
+ul ul {
+  margin-block: 0.5em;
+  padding-inline-start: 1.1rem;
+}
+
+/**
+ * @description Nested UL list items
+ */
+ul ul li {
+  grid-template-columns: 1.1rem 1fr;
+  column-gap: 0.8rem;
+}
+
+/**
+ * @description Nested UL marker (arrow)
+ */
+ul ul li::before {
+  width: 0.75rem;
+  height: 0.75rem;
+
+  margin-top: calc(
+    (1em * var(--lh-normal) - 0.75rem) / 2
+  );
+
+  margin-inline-start: 0.15rem;
+
+  mask-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" \
+fill="none" stroke="black" stroke-width="4" \
+stroke-linecap="round" stroke-linejoin="round">\
+<path d="M5 12h14M12 5l7 7-7 7"/>\
+</svg>');
+
+  -webkit-mask-image: url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" \
+fill="none" stroke="black" stroke-width="4" \
+stroke-linecap="round" stroke-linejoin="round">\
+<path d="M5 12h14M12 5l7 7-7 7"/>\
+</svg>');
+}
+
+/**
+ * @description Ordered list style
+ */
+ol {
+  list-style-type: decimal-leading-zero;
+}
+
+/**
+ * @description Nested ordered list
+ */
+ol ol {
+  list-style-type: lower-roman;
+  margin-block: 0.5em;
+}
+
+/**
+ * @description Ensure native marker behavior
+ */
+ol li {
+  display: list-item;
+}
+
+/**
+ * @description Ordered list marker styling
+ */
+ol li::marker {
+  color: var(--color-caption-raw);
+  font-family: var(--font-stack-mono);
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums lining-nums;
+  unicode-bidi: isolate;
+}
+
+/* ==========================================================
+    Blockquotes
+   ---------------------------------------------------------- */
+
+/**
+ * @description Blockquote styling.
+ */
+blockquote {
+  /* Horizontal alignment & Measure */
+  margin-inline: 0;
+  max-width: 70ch;
+
+  /* Internal spacing and visual accent */
+  padding-inline-start: 1.5rem;
+  border-inline-start: 3px solid var(--color-accent-raw);
+
+  /* Typography */
+  font-family: var(--font-stack-body);
+  color: var(--color-body-raw);
+}
+
+/**
+ * @description The quote text.
+ */
+blockquote p {
+  font-family: var(--font-stack-heading);
+  font-style: italic;
+}
+
+/**
+ * @description The attribution.
+ */
+blockquote cite {
+  display: block;
+  font-style: normal;
+  font-weight: 500;
+  font-size: var(--step--1);
+  color: var(--color-caption-raw);
+  margin-block-start: 0.75rem;
+}
+
+blockquote cite::before {
+  content: "\2014 \00A0"; /* Em-dash */
+}
+
+/* ==========================================================
+    Horizontal Rule
+   ---------------------------------------------------------- */
+
+/**
+ * @description Horizontal rule styling.
+ */
+hr {
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-accent-raw),
+    var(--color-accent-raw)
+  );
+  background-position: 0 50%;
+  background-repeat: repeat-x;
+  background-size: 100% 2px;
+
+  border: 0;
+  height: 2px;
+
+  margin: var(--space-md) 0;
+}
+
+hr.article {
+  /* 80% width, and center aligned */
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+
+  background-size: 100% 1px;
+  height: 1px;
+  opacity: 0.6;
+}
+
+}
+

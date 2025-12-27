@@ -44,3 +44,8 @@
  * @description Fonts.
  */
 @import "./fonts.css";
+
+/**
+ * @description Typography.
+ */
+@import "./typography.css";

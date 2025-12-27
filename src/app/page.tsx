@@ -92,7 +92,45 @@ export default function Home() {
             <h5> Heading Five </h5>
             <h6> Heading Six </h6>
 	  </div>
-	</section>
+        </section>
+
+	<div className="table-card">
+          <span className="table-header">System Stability</span>
+          <div className="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Project Name</th>
+                  <th>Stabilty</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Project Name">Typography System</td>
+                  <td data-label="Stability">Stable</td>
+                  <td data-label="Value">0.0027</td>
+		</tr>
+                <tr>
+                  <td data-label="Project Name">Typography System</td>
+                  <td data-label="Stability">Stable</td>
+                  <td data-label="Value">0.0027</td>
+		</tr>
+                <tr>
+                  <td data-label="Project Name">Typography System</td>
+                  <td data-label="Stability">Stable</td>
+                  <td data-label="Value">0.0027</td>
+		</tr>
+                <tr>
+                  <td data-label="Project Name">Typography System</td>
+                  <td data-label="Stability">Stable</td>
+                  <td data-label="Value">0.0027</td>
+		</tr>
+	      </tbody>
+	      <caption>Source: Data taken from a very trustable source.</caption>
+	    </table>
+	  </div>
+	</div>
 
         <section className="bg-feature rounded-3xl p-md-lg border border-accent/10 flow">
           <div className="flex items-center gap-3 mb-md">
@@ -197,12 +235,6 @@ export default function Home() {
               </div>
           </aside>
         </div>
-
-        <footer className="pt-lg border-t border-accent/10 text-center sm:text-left">
-          <p className="text-caption text-sm opacity-60">
-            © 2025 Suryansh Singh (thedevmystic).
-          </p>
-        </footer>
       </main>
     </div>
   );

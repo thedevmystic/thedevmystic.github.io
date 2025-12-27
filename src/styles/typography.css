@@ -92,6 +92,9 @@ html {
   /* Min height */
   min-height: 100vh;
   min-height: 100dvh;
+
+  /* Padding */
+  padding: 0;
 }
 
 /**
@@ -189,6 +192,9 @@ body {
   /* Bg & fg colors */
   background-color: var(--color-base-raw);
   color: var(--color-body-raw);
+
+  /* Padding */
+  padding: 0;
 }
 
 /* ==========================================================
@@ -334,7 +340,7 @@ p {
 /**
  * @description Fine print or small metadata.
  */
-small, .caption {
+small, caption {
   font-size: var(--step--2);
   line-height: var(--lh-snug);
   color: var(--color-caption-raw);
@@ -616,5 +622,192 @@ hr.article {
   opacity: 0.6;
 }
 
+/**
+ * @section Table Card Container
+ * The outermost wrapper defining the card aesthetic.
+ */
+.table-card {
+  margin-block: var(--space-md);
+  padding: 1.5rem;
+  background-color: var(--color-feature-raw);
+  border: 1px solid color-mix(in srgb, var(--color-caption-raw), transparent 85%);
+  border-radius: 0.75rem;
+
+  /* 🔑 Fix pointy borders & gaps */
+  overflow: hidden;
 }
 
+/**
+ * @section Table Header (Title)
+ */
+.table-header {
+  margin-block-end: 1rem;
+  font-family: var(--font-stack-heading);
+  font-size: var(--step-1);
+  font-weight: 700;
+  color: var(--color-heading-raw);
+}
+
+/**
+ * @section Responsive Wrapper
+ */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 0.5rem;
+}
+
+/**
+ * @section Base Table Styling
+ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: var(--step-0);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Reset margins when nested inside a card */
+.table-card table {
+  margin-block: 0;
+}
+
+/**
+ * @section Header & Footer Structure
+ */
+th {
+  padding: 0.75rem 1rem;
+  font-family: var(--font-stack-heading);
+  font-weight: 600;
+  color: var(--color-heading-raw);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  border-block-end: 2px solid var(--color-accent-raw);
+}
+
+tfoot {
+  font-weight: 600;
+  color: var(--color-heading-raw);
+  border-block-start: 2px solid var(--color-accent-raw);
+}
+
+/**
+ * @section Body Cells & Rows
+ */
+td {
+  padding: 0.75rem 1rem;
+  vertical-align: top;
+  line-height: var(--lh-normal);
+  color: var(--color-paragraph-raw);
+  border-block-end: 1px solid color-mix(in srgb, var(--color-caption-raw), transparent 80%);
+}
+
+/* Zebra striping */
+tbody tr:nth-child(even) {
+  background-color: color-mix(in srgb, var(--color-accent-raw), transparent 95%);
+}
+
+/* Interactive hover state */
+tbody tr:hover {
+  background-color: color-mix(in srgb, var(--color-accent-raw), transparent 90%);
+  transition: background-color 150ms ease-in-out;
+}
+
+/**
+ * @section Table Caption
+ */
+table caption {
+  caption-side: bottom;
+  margin-block-start: 0.85rem;
+  padding-inline: 1rem;
+  text-align: left;
+  font-size: var(--step--2);
+  font-style: italic;
+  color: var(--color-caption-raw);
+}
+
+/**
+ * @description Mobile-style for table
+ */
+@media screen and (max-width: 40rem) {
+  .table-card {
+    padding: 1rem;
+    display: block !important;
+  }
+
+  .table-header {
+    display: block;
+    margin-bottom: 1.5rem !important; /* Force the gap below the title */
+    padding: 0.5rem;
+    font-size: var(--step-1);
+    line-height: var(--lh-snug);
+  }
+
+  /* Reset all table elements to blocks for stacking */
+  .table-container table,
+  .table-container tbody,
+  .table-container tr,
+  .table-container td {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  /* 1. The Mini-Card (Row) */
+  tbody tr {
+    background-color: var(--color-feature-raw);
+    border: 1px solid color-mix(in srgb, var(--color-caption-raw), transparent 90%);
+    border-radius: 0.75rem;
+    margin-block-end: 1rem;
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  
+  tbody tr:nth-child(even),
+  tbody tr:nth-child(odd) {
+    background-color: var(--color-feature-raw) !important;
+  }
+
+  /* 2. The Cell Layout Fix */
+  td {
+    display: flex !important; /* FIXED: Semicolon moved to the end */
+    justify-content: flex-start; 
+    align-items: center;
+    gap: 1rem;
+    
+    padding: 0.75rem 0.5rem;
+    border-block-end: 1px solid color-mix(in srgb, var(--color-caption-raw), transparent 95%);
+    text-align: left;
+  }
+
+  td:last-child {
+    border-block-end: none;
+  }
+
+  /* 3. The Label (Left Side) */
+  td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: var(--step--1);
+    color: var(--color-caption-raw);
+    
+    /* Ensure it stays far left */
+    flex: 0 0 40%;
+    text-align: left;
+  }
+
+  /* 4. Caption Alignment */
+  table caption {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-block-start: 0.5rem;
+    padding-inline: 0.5rem;
+  }
+}
+}

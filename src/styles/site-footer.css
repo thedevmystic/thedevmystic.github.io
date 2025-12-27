@@ -1,0 +1,261 @@
+/**
+ * Copyright 2025 Suryansh Singh
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * ------------------------------------------------------------------------------------------------------
+ *
+ * @path [ROOT]/src/styles/site-footer.css
+ * @file site-footer.css
+ * @description CSS file for site footer styling.
+ *
+ * @author thedevmystic (Surya)
+ * @copyright 2025 Suryansh Singh Apache-2.0 License
+ *
+ * SPDX-FileCopyrightText: 2025 Suryansh Singh
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/**
+ * @description Site footer.
+ */
+.site-footer {
+  width: 100%;
+  margin: 0;
+
+  background-color: var(--color-banner-raw);
+  color: var(--color-body-raw);
+    
+
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 -2px 3px rgba(var(--color-shadow-raw), 0.3);
+
+  overflow: hidden;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  z-index: 10;
+}
+
+.site-footer__main {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+}
+
+/* Brand Section */
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.site-footer__logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-body-raw);
+  letter-spacing: -0.025em;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-footer__logo-icon {
+  color: var(--color-accent-raw);
+}
+
+.site-footer__brand-description {
+  color: var(--color-paragraph-raw);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  max-width: 22rem;
+  margin: 0;
+}
+
+/* Social Media Row */
+.site-footer__social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.site-footer__social-links a {
+  color: var(--color-heading-raw);
+  font-size: 1.125rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+  opacity: 0.8;
+}
+
+.site-footer__social-links a:hover {
+  color: var(--color-hover-raw);
+  transform: translateY(-0.2rem);
+  opacity: 1;
+}
+
+/* Back to Top Button */
+.site-footer__back-to-top {
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  background: transparent;
+  color: var(--color-caption-raw);
+  padding: 0.75rem 1.25rem;
+  align-items: center;
+  margin-top: 0.5rem;
+
+  border: 1px solid var(--color-caption-raw);
+  border-radius: 0.5rem;
+
+  transform: scale(1);
+  transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+
+  cursor: pointer;
+  display: flex;
+
+  width: fit-content;
+  gap: 0.6rem;
+}
+
+.site-footer__back-to-top:hover {
+  color: var(--color-body-raw);
+  transform: scale(1.05) translateY(-1.5px);
+  @apply bg-hover/50;
+}
+
+/* Link Columns */
+.footer-links-group h4 {
+  color: var(--color-heading-raw);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.footer-links-group ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+}
+
+.footer-links-group li {
+  display: block !important;
+  margin-block-end: 0.75rem !important;
+  padding: 0 !important;
+}
+
+.site-footer li::before {
+  content: none !important;
+  display: none !important;
+}
+
+.footer-links-group a {
+  color: var(--color-link-raw);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+
+  position: relative;
+  display: inline-block;
+}
+
+/* The Underline (Hidden state) */
+.footer-links-group a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1.5px; /* Thickness of the line */
+  bottom: -2px;  /* Distance from the text */
+  left: 0;
+  background-color: var(--color-hover-raw);
+
+  /* Start at 0 scale from the center */
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-links-group a:hover {
+  color: var(--color-hover-raw);
+}
+
+.footer-links-group a:hover::after {
+  /* Scale to full width */
+  transform: scaleX(1);
+}
+
+/* Copyright Bottom Bar */
+.site-footer__bottom {
+  width: 100% !important;
+  margin: 0 !important;
+
+  background-color: var(--color-success-raw);
+  color: var(--color-base-raw);
+
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  margin-top: auto;
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 48rem) {
+  .site-footer {
+    width: 100%;
+    margin: 0;
+  }
+
+  .site-footer__main {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .site-footer__brand {
+    align-items: center;
+  }
+
+  .site-footer__brand-description {
+    max-width: 100%;
+  }
+
+  .site-footer__social-links {
+    justify-content: center;
+  }
+
+  .site-footer__back-to-top {
+    margin: 0 auto;
+  }
+
+  .footer-links-group {
+    border-top: 1px solid rgba(var(--color-shadow-raw), 0.1);
+    padding-top: 2rem;
+  }
+
+  .site-footer__bottom {
+    border-radius: 0;
+  }
+}
+

@@ -562,13 +562,9 @@ const baseTheme = createTheme({
             '& + .MuiSwitch-track': {
               opacity: 1,
               backgroundColor: 'color-mix(in srgb, var(--color-accent) 50%, transparent)',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
 
               '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
                 backgroundColor: 'var(--color-accent)',
-                backdropFilter: 'none',
-                WebkitBackdropFilter: 'none',
               },
             },
 
@@ -581,13 +577,9 @@ const baseTheme = createTheme({
             '& + .MuiSwitch-track': {
               backgroundColor:
                 'color-mix(in srgb, var(--color-switch-track-disabled) 50%, transparent)',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
 
               '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
                 backgroundColor: 'var(--color-switch-track-disabled)',
-                backdropFilter: 'none',
-                WebkitBackdropFilter: 'none',
               },
             },
           },
@@ -601,14 +593,10 @@ const baseTheme = createTheme({
           height: 16,
           boxShadow: 'none',
           color: 'color-mix(in srgb, var(--color-switch-thumb-unchecked) 70%, transparent)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
           transition: 'transform 150ms cubic-bezier(0.4, 0, 0.2, 1)',
 
           '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
             color: 'var(--color-switch-thumb-unchecked)',
-            backdropFilter: 'none',
-            WebkitBackdropFilter: 'none',
           },
         },
         track: {
@@ -616,15 +604,11 @@ const baseTheme = createTheme({
           opacity: 1,
           backgroundColor:
             'color-mix(in srgb, var(--color-switch-track-unchecked) 50%, transparent)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
           border: '1px solid var(--color-border)',
           transition: 'background-color 150ms cubic-bezier(0.4, 0, 0.2, 1)',
 
           '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
             backgroundColor: 'var(--color-switch-track-unchecked)',
-            backdropFilter: 'none',
-            WebkitBackdropFilter: 'none',
           },
         },
       },

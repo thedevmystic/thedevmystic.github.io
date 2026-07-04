@@ -459,24 +459,22 @@ const baseTheme = createTheme({
       styleOverrides: {
         root: {
           '& .MuiBackdrop-root': {
-            backdropFilter: 'blur(4px)',
+            backdropFilter: 'blur(12px)',
+            webkitBackdropFilter: 'blur(12px)',
             backgroundColor: 'rgba(0, 0, 0, 0.4)',
           },
           '[data-theme="high-contrast-light"] & .MuiBackdrop-root, [data-theme="high-contrast-dark"] & .MuiBackdrop-root':
             {
               backdropFilter: 'none',
+              webkitBackdropFilter: 'none',
             },
         },
         paper: {
           backgroundColor: 'color-mix(in srgb, var(--color-bg-feature) 50%, transparent)',
-          backdropFilter: 'blur(12px)',
-          webkitBackdropFilter: 'blur(12px)',
           border: '1px solid var(--color-border)',
 
           '[data-theme="high-contrast-light"] &, [data-theme="high-contrast-dark"] &': {
             backgroundColor: 'var(--color-bg-feature)',
-            backdropFilter: 'none',
-            webkitBackdropFilter: 'none',
             border: '2px solid var(--color-border)',
           },
         },

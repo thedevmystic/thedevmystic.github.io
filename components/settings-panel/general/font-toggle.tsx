@@ -26,8 +26,8 @@
 'use client';
 
 import { Box, Typography, FormControl, Select, MenuItem, SelectChangeEvent } from '@mui/material';
-import { useFont } from '@providers/font-provider';
-import type { Font } from '@providers/font-provider';
+import { useFont } from '@providers/base-providers';
+import type { Font } from '@providers/base-providers';
 
 export default function FontToggle() {
   const { token: font, setToken: setFont } = useFont();

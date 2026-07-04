@@ -26,8 +26,8 @@
 'use client';
 
 import { Box, Typography, FormControl, Select, MenuItem, SelectChangeEvent } from '@mui/material';
-import { useContentDensity } from '@providers/content-density-provider';
-import type { ContentDensity } from '@providers/content-density-provider';
+import { useContentDensity } from '@providers/base-providers';
+import type { ContentDensity } from '@providers/base-providers';
 
 export default function ContentDensityToggle() {
   const { token: contentDensity, setToken: setContentDensity } = useContentDensity();

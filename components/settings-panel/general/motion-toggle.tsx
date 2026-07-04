@@ -29,9 +29,9 @@ import MotionPhotosAutoIcon from '@mui/icons-material/MotionPhotosAuto';
 import MotionPhotosOffIcon from '@mui/icons-material/MotionPhotosOff';
 import { Box, Typography, ToggleButtonGroup, ToggleButton, Tooltip } from '@mui/material';
 
-import { useMotion } from '@providers/motion-provider';
+import { useMotion } from '@providers/base-providers';
 
-import type { Motion } from '@providers/motion-provider';
+import type { Motion } from '@providers/base-providers';
 
 export default function MotionToggle() {
   const { token: motion, setToken: setMotion } = useMotion();

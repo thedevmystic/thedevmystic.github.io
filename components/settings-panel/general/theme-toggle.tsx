@@ -40,9 +40,9 @@ import {
   Divider,
 } from '@mui/material';
 
-import { useTheme } from '@providers/theme-provider';
+import { useTheme } from '@providers/base-providers';
 
-import type { Theme } from '@providers/theme-provider';
+import type { Theme } from '@providers/base-providers';
 
 type BaseTheme = 'light' | 'dark' | 'system';
 

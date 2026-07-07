@@ -114,7 +114,7 @@ const INSTANCES: TokenScriptConfig[] = [
   },
   {
     storageKey: 'enable-code-line-wrap',
-    attribute: 'data-enable-code-line-wrap',
+    attribute: 'none',
     defaultToken: 'off',
     enableSystem: false,
     enableColorScheme: false,
@@ -122,7 +122,7 @@ const INSTANCES: TokenScriptConfig[] = [
   },
   {
     storageKey: 'enable-code-label',
-    attribute: 'data-enable-code-label',
+    attribute: 'none',
     defaultToken: 'on',
     enableSystem: false,
     enableColorScheme: false,
@@ -130,7 +130,7 @@ const INSTANCES: TokenScriptConfig[] = [
   },
   {
     storageKey: 'enable-code-copy-button',
-    attribute: 'data-enable-code-copy-button',
+    attribute: 'none',
     defaultToken: 'on',
     enableSystem: false,
     enableColorScheme: false,
@@ -138,7 +138,7 @@ const INSTANCES: TokenScriptConfig[] = [
   },
   {
     storageKey: 'enable-code-line-numbers',
-    attribute: 'data-enable-code-line-numbers',
+    attribute: 'none',
     defaultToken: 'on',
     enableSystem: false,
     enableColorScheme: false,

@@ -91,7 +91,7 @@ export type EnableCodeLineWrap = 'on' | 'off';
 const { Provider: EnableCodeLineWrap, useToken: useEnableCodeLineWrap } =
   createTokenProvider<EnableCodeLineWrap>({
     storageKey: 'enable-code-line-wrap',
-    attribute: 'data-enable-code-line-wrap',
+    attribute: 'none',
     defaultToken: 'off',
     enableSystem: false,
     enableColorScheme: false,
@@ -109,7 +109,7 @@ export type EnableCodeLabel = 'on' | 'off';
 const { Provider: EnableCodeLabel, useToken: useEnableCodeLabel } =
   createTokenProvider<EnableCodeLabel>({
     storageKey: 'enable-code-label',
-    attribute: 'data-enable-code-label',
+    attribute: 'none',
     defaultToken: 'on',
     enableSystem: false,
     enableColorScheme: false,
@@ -127,7 +127,7 @@ export type EnableCodeCopyButton = 'on' | 'off';
 const { Provider: EnableCodeCopyButton, useToken: useEnableCodeCopyButton } =
   createTokenProvider<EnableCodeCopyButton>({
     storageKey: 'enable-code-copy-button',
-    attribute: 'data-enable-code-copy-button',
+    attribute: 'none',
     defaultToken: 'on',
     enableSystem: false,
     enableColorScheme: false,
@@ -145,7 +145,7 @@ export type EnableLineNumbers = 'on' | 'off';
 const { Provider: EnableLineNumbers, useToken: useEnableLineNumbers } =
   createTokenProvider<EnableLineNumbers>({
     storageKey: 'enable-code-line-numbers',
-    attribute: 'data-enable-code-line-numbers',
+    attribute: 'none',
     defaultToken: 'on',
     enableSystem: false,
     enableColorScheme: false,

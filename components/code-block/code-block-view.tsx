@@ -29,6 +29,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 import {
+  useEnableCodeLineWrap,
   useEnableCodeLabel,
   useEnableCodeCopyButton,
   useEnableLineNumbers,
@@ -51,11 +52,16 @@ const LABELS = {
 } as const;
 
 export const CodeBlockView = ({ html, code, language }: CodeBlockViewProps) => {
+  const { token: enableCodeLineWrap } = useEnableCodeLineWrap();
   const { token: enableCodeLabel } = useEnableCodeLabel();
   const { token: enableCodeCopyButton } = useEnableCodeCopyButton();
   const { token: enableLineNumbers } = useEnableLineNumbers();
 
   const showHeader = enableCodeLabel === 'on' || enableCodeCopyButton === 'on';
+
+  let codeBodyClassNames = '';
+  if (enableCodeLineWrap === 'on') codeBodyClassNames += ' code-block--line-wrap';
+  if (enableLineNumbers === 'on') codeBodyClassNames += ' code-block--numbered';
 
   return (
     <Box
@@ -114,7 +120,7 @@ export const CodeBlockView = ({ html, code, language }: CodeBlockViewProps) => {
       )}
 
       <Box
-        className={enableLineNumbers === 'on' ? 'code-block--numbered' : undefined}
+        className={codeBodyClassNames}
         sx={{
           background: 'transparent',
 
@@ -131,7 +137,7 @@ export const CodeBlockView = ({ html, code, language }: CodeBlockViewProps) => {
             color: 'inherit',
           },
 
-          '[data-enable-code-line-wrap="on"] &': {
+          '&.code-block--line-wrap': {
             '& pre': {
               whiteSpace: 'pre-wrap',
               overflowWrap: 'break-word',

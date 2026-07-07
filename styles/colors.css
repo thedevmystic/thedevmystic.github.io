@@ -405,3 +405,370 @@
   --color-switch-thumb-unchecked: oklch(0.4 0.055 68);
   --color-switch-thumb-disabled: oklch(0.68 0.045 72);
 }
+
+/* CODE THEMES */
+
+/* =============================================================================================
+    Gruvbox
+   ============================================================================================= */
+[data-theme='dark'][data-code-theme='gruvbox'] {
+  --shiki-background: #282828;
+  --shiki-foreground: #ebdbb2;
+  --shiki-token-keyword: #fb4934;
+  --shiki-token-string: #b8bb26;
+  --shiki-token-comment: #928374;
+  --shiki-token-function: #83a598;
+  --shiki-token-constant: #d3869b;
+  --shiki-token-parameter: #fe8019;
+  --shiki-token-string-expression: #8ec07c;
+  --shiki-token-punctuation: #a89984;
+  --shiki-token-link: #83a598;
+}
+
+[data-theme='high-contrast-dark'][data-code-theme='gruvbox'] {
+  --shiki-background: #1d2021;
+  --shiki-foreground: #fbf1c7;
+  --shiki-token-keyword: #fb4934;
+  --shiki-token-string: #b8bb26;
+  --shiki-token-comment: #a89984;
+  --shiki-token-function: #83a598;
+  --shiki-token-constant: #d3869b;
+  --shiki-token-parameter: #fe8019;
+  --shiki-token-string-expression: #8ec07c;
+  --shiki-token-punctuation: #ebdbb2;
+  --shiki-token-link: #83a598;
+}
+
+[data-theme='light'][data-code-theme='gruvbox'] {
+  --shiki-background: #fbf1c7;
+  --shiki-foreground: #3c3836;
+  --shiki-token-keyword: #9d0006;
+  --shiki-token-string: #79740e;
+  --shiki-token-comment: #928374;
+  --shiki-token-function: #076678;
+  --shiki-token-constant: #8f3f71;
+  --shiki-token-parameter: #af3a03;
+  --shiki-token-string-expression: #427b58;
+  --shiki-token-punctuation: #504945;
+  --shiki-token-link: #076678;
+}
+
+[data-theme='high-contrast-light'][data-code-theme='gruvbox'] {
+  --shiki-background: #f9f5d7;
+  --shiki-foreground: #282828;
+  --shiki-token-keyword: #9d0006;
+  --shiki-token-string: #79740e;
+  --shiki-token-comment: #654735;
+  --shiki-token-function: #076678;
+  --shiki-token-constant: #8f3f71;
+  --shiki-token-parameter: #af3a03;
+  --shiki-token-string-expression: #427b58;
+  --shiki-token-punctuation: #1d2021;
+  --shiki-token-link: #076678;
+}
+
+[data-theme='sepia'][data-code-theme='gruvbox'] {
+  --shiki-background: #f4ecd8;
+  --shiki-foreground: #5b4636;
+  --shiki-token-keyword: #a8551e;
+  --shiki-token-string: #6f7d3c;
+  --shiki-token-comment: #9c8b70;
+  --shiki-token-function: #4d7a7a;
+  --shiki-token-constant: #8a5a74;
+  --shiki-token-parameter: #a8672e;
+  --shiki-token-string-expression: #6a8a72;
+  --shiki-token-punctuation: #7a6552;
+  --shiki-token-link: #4d7a7a;
+}
+
+/* =============================================================================================
+    Dracula
+   ============================================================================================= */
+[data-theme='dark'][data-code-theme='dracula'] {
+  --shiki-background: #282a36;
+  --shiki-foreground: #f8f8f2;
+  --shiki-token-keyword: #ff79c6;
+  --shiki-token-string: #f1fa8c;
+  --shiki-token-comment: #6272a4;
+  --shiki-token-function: #50fa7b;
+  --shiki-token-constant: #bd93f9;
+  --shiki-token-parameter: #ffb86c;
+  --shiki-token-string-expression: #8be9fd;
+  --shiki-token-punctuation: #f8f8f2;
+  --shiki-token-link: #8be9fd;
+}
+
+[data-theme='high-contrast-dark'][data-code-theme='dracula'] {
+  --shiki-background: #1e1f29;
+  --shiki-foreground: #ffffff;
+  --shiki-token-keyword: #ff92d0;
+  --shiki-token-string: #f6ff8f;
+  --shiki-token-comment: #8d9ce8;
+  --shiki-token-function: #69ff94;
+  --shiki-token-constant: #cba6ff;
+  --shiki-token-parameter: #ffc379;
+  --shiki-token-string-expression: #97f3ff;
+  --shiki-token-punctuation: #ffffff;
+  --shiki-token-link: #97f3ff;
+}
+
+[data-theme='light'][data-code-theme='dracula'] {
+  --shiki-background: #f8f8f2;
+  --shiki-foreground: #282a36;
+  --shiki-token-keyword: #c0186b;
+  --shiki-token-string: #7a7207;
+  --shiki-token-comment: #6272a4;
+  --shiki-token-function: #16a34a;
+  --shiki-token-constant: #7c3aed;
+  --shiki-token-parameter: #b3560d;
+  --shiki-token-string-expression: #0e94a3;
+  --shiki-token-punctuation: #282a36;
+  --shiki-token-link: #0e94a3;
+}
+
+[data-theme='high-contrast-light'][data-code-theme='dracula'] {
+  --shiki-background: #ffffff;
+  --shiki-foreground: #1a1b23;
+  --shiki-token-keyword: #a1105a;
+  --shiki-token-string: #665f06;
+  --shiki-token-comment: #3d4a75;
+  --shiki-token-function: #0f7f38;
+  --shiki-token-constant: #5b21b6;
+  --shiki-token-parameter: #8f4008;
+  --shiki-token-string-expression: #0a7480;
+  --shiki-token-punctuation: #000000;
+  --shiki-token-link: #0a7480;
+}
+
+[data-theme='sepia'][data-code-theme='dracula'] {
+  --shiki-background: #f4ecd8;
+  --shiki-foreground: #4a3f35;
+  --shiki-token-keyword: #a3527a;
+  --shiki-token-string: #8a7d3a;
+  --shiki-token-comment: #8d7f6e;
+  --shiki-token-function: #5c8a6e;
+  --shiki-token-constant: #7d6a9e;
+  --shiki-token-parameter: #a06a3e;
+  --shiki-token-string-expression: #5f8c92;
+  --shiki-token-punctuation: #6b5a4d;
+  --shiki-token-link: #5f8c92;
+}
+
+/* =============================================================================================
+    GitHub
+   ============================================================================================= */
+[data-theme='dark'][data-code-theme='github'] {
+  --shiki-background: #0d1117;
+  --shiki-foreground: #c9d1d9;
+  --shiki-token-keyword: #ff7b72;
+  --shiki-token-string: #a5d6ff;
+  --shiki-token-comment: #8b949e;
+  --shiki-token-function: #d2a8ff;
+  --shiki-token-constant: #79c0ff;
+  --shiki-token-parameter: #ffa657;
+  --shiki-token-string-expression: #a5d6ff;
+  --shiki-token-punctuation: #c9d1d9;
+  --shiki-token-link: #79c0ff;
+}
+
+[data-theme='high-contrast-dark'][data-code-theme='github'] {
+  --shiki-background: #010409;
+  --shiki-foreground: #f0f6fc;
+  --shiki-token-keyword: #ffa198;
+  --shiki-token-string: #c8e6ff;
+  --shiki-token-comment: #a9b6c2;
+  --shiki-token-function: #e2c1ff;
+  --shiki-token-constant: #a5d6ff;
+  --shiki-token-parameter: #ffbe7a;
+  --shiki-token-string-expression: #c8e6ff;
+  --shiki-token-punctuation: #f0f6fc;
+  --shiki-token-link: #a5d6ff;
+}
+
+[data-theme='light'][data-code-theme='github'] {
+  --shiki-background: #ffffff;
+  --shiki-foreground: #24292e;
+  --shiki-token-keyword: #d73a49;
+  --shiki-token-string: #032f62;
+  --shiki-token-comment: #6a737d;
+  --shiki-token-function: #6f42c1;
+  --shiki-token-constant: #005cc5;
+  --shiki-token-parameter: #e36209;
+  --shiki-token-string-expression: #032f62;
+  --shiki-token-punctuation: #24292e;
+  --shiki-token-link: #005cc5;
+}
+
+[data-theme='high-contrast-light'][data-code-theme='github'] {
+  --shiki-background: #ffffff;
+  --shiki-foreground: #0a0c10;
+  --shiki-token-keyword: #b91c28;
+  --shiki-token-string: #022146;
+  --shiki-token-comment: #4b5257;
+  --shiki-token-function: #57329c;
+  --shiki-token-constant: #00478f;
+  --shiki-token-parameter: #ad4c05;
+  --shiki-token-string-expression: #022146;
+  --shiki-token-punctuation: #000000;
+  --shiki-token-link: #00478f;
+}
+
+[data-theme='sepia'][data-code-theme='github'] {
+  --shiki-background: #f4ecd8;
+  --shiki-foreground: #433a30;
+  --shiki-token-keyword: #a8443f;
+  --shiki-token-string: #5c6f7a;
+  --shiki-token-comment: #948572;
+  --shiki-token-function: #7a5f96;
+  --shiki-token-constant: #5c7a94;
+  --shiki-token-parameter: #a06a3e;
+  --shiki-token-string-expression: #5c6f7a;
+  --shiki-token-punctuation: #6b5a4d;
+  --shiki-token-link: #5c7a94;
+}
+
+/* =============================================================================================
+    Nord
+   ============================================================================================= */
+[data-theme='dark'][data-code-theme='nord'] {
+  --shiki-background: #2e3440;
+  --shiki-foreground: #d8dee9;
+  --shiki-token-keyword: #81a1c1;
+  --shiki-token-string: #a3be8c;
+  --shiki-token-comment: #4c566a;
+  --shiki-token-function: #88c0d0;
+  --shiki-token-constant: #b48ead;
+  --shiki-token-parameter: #d08770;
+  --shiki-token-string-expression: #8fbcbb;
+  --shiki-token-punctuation: #e5e9f0;
+  --shiki-token-link: #88c0d0;
+}
+
+[data-theme='high-contrast-dark'][data-code-theme='nord'] {
+  --shiki-background: #242933;
+  --shiki-foreground: #eceff4;
+  --shiki-token-keyword: #9dbde0;
+  --shiki-token-string: #b6d69f;
+  --shiki-token-comment: #7686a2;
+  --shiki-token-function: #a0d8e6;
+  --shiki-token-constant: #cba3c2;
+  --shiki-token-parameter: #e0977f;
+  --shiki-token-string-expression: #a3d2d1;
+  --shiki-token-punctuation: #ffffff;
+  --shiki-token-link: #a0d8e6;
+}
+
+[data-theme='light'][data-code-theme='nord'] {
+  --shiki-background: #eceff4;
+  --shiki-foreground: #2e3440;
+  --shiki-token-keyword: #4c6a92;
+  --shiki-token-string: #5c7a4a;
+  --shiki-token-comment: #7d8a9e;
+  --shiki-token-function: #3d7d8c;
+  --shiki-token-constant: #7c5a78;
+  --shiki-token-parameter: #a2562f;
+  --shiki-token-string-expression: #3f7a76;
+  --shiki-token-punctuation: #3b4252;
+  --shiki-token-link: #3d7d8c;
+}
+
+[data-theme='high-contrast-light'][data-code-theme='nord'] {
+  --shiki-background: #ffffff;
+  --shiki-foreground: #1c2128;
+  --shiki-token-keyword: #365170;
+  --shiki-token-string: #445e37;
+  --shiki-token-comment: #4c5768;
+  --shiki-token-function: #29616d;
+  --shiki-token-constant: #603f5c;
+  --shiki-token-parameter: #833f1f;
+  --shiki-token-string-expression: #2c5f5b;
+  --shiki-token-punctuation: #000000;
+  --shiki-token-link: #29616d;
+}
+
+[data-theme='sepia'][data-code-theme='nord'] {
+  --shiki-background: #f4ecd8;
+  --shiki-foreground: #4a463f;
+  --shiki-token-keyword: #5f7a94;
+  --shiki-token-string: #798a5e;
+  --shiki-token-comment: #948a76;
+  --shiki-token-function: #5c8a92;
+  --shiki-token-constant: #8a6e84;
+  --shiki-token-parameter: #a67550;
+  --shiki-token-string-expression: #6a9088;
+  --shiki-token-punctuation: #6b5a4d;
+  --shiki-token-link: #5c8a92;
+}
+
+/* =============================================================================================
+    Solarized
+   ============================================================================================= */
+[data-theme='dark'][data-code-theme='solarized'] {
+  --shiki-background: #002b36;
+  --shiki-foreground: #839496;
+  --shiki-token-keyword: #859900;
+  --shiki-token-string: #2aa198;
+  --shiki-token-comment: #586e75;
+  --shiki-token-function: #268bd2;
+  --shiki-token-constant: #6c71c4;
+  --shiki-token-parameter: #cb4b16;
+  --shiki-token-string-expression: #b58900;
+  --shiki-token-punctuation: #93a1a1;
+  --shiki-token-link: #268bd2;
+}
+
+[data-theme='high-contrast-dark'][data-code-theme='solarized'] {
+  --shiki-background: #001e27;
+  --shiki-foreground: #eee8d5;
+  --shiki-token-keyword: #9dbe0f;
+  --shiki-token-string: #3fc2b8;
+  --shiki-token-comment: #7891a8;
+  --shiki-token-function: #4fa6e8;
+  --shiki-token-constant: #8b8fe0;
+  --shiki-token-parameter: #e8632c;
+  --shiki-token-string-expression: #d1a52a;
+  --shiki-token-punctuation: #eee8d5;
+  --shiki-token-link: #4fa6e8;
+}
+
+[data-theme='light'][data-code-theme='solarized'] {
+  --shiki-background: #fdf6e3;
+  --shiki-foreground: #657b83;
+  --shiki-token-keyword: #859900;
+  --shiki-token-string: #2aa198;
+  --shiki-token-comment: #93a1a1;
+  --shiki-token-function: #268bd2;
+  --shiki-token-constant: #6c71c4;
+  --shiki-token-parameter: #cb4b16;
+  --shiki-token-string-expression: #b58900;
+  --shiki-token-punctuation: #586e75;
+  --shiki-token-link: #268bd2;
+}
+
+[data-theme='high-contrast-light'][data-code-theme='solarized'] {
+  --shiki-background: #ffffff;
+  --shiki-foreground: #073642;
+  --shiki-token-keyword: #5f6e00;
+  --shiki-token-string: #167b73;
+  --shiki-token-comment: #55646b;
+  --shiki-token-function: #1c6ea4;
+  --shiki-token-constant: #4c50a8;
+  --shiki-token-parameter: #a13a10;
+  --shiki-token-string-expression: #8a6900;
+  --shiki-token-punctuation: #002b36;
+  --shiki-token-link: #1c6ea4;
+}
+
+[data-theme='sepia'][data-code-theme='solarized'] {
+  --shiki-background: #f4ecd8;
+  --shiki-foreground: #5b4a3a;
+  --shiki-token-keyword: #7a8a3e;
+  --shiki-token-string: #4d8a80;
+  --shiki-token-comment: #9c8b70;
+  --shiki-token-function: #5c7a94;
+  --shiki-token-constant: #8a7ba0;
+  --shiki-token-parameter: #a8672e;
+  --shiki-token-string-expression: #a8892e;
+  --shiki-token-punctuation: #7a6552;
+  --shiki-token-link: #5c7a94;
+}

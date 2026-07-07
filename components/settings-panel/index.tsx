@@ -29,11 +29,13 @@ import { useState } from 'react';
 import type { ReactNode } from 'react';
 
 import CloseIcon from '@mui/icons-material/Close';
+import CodeIcon from '@mui/icons-material/Code';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Box, Typography, IconButton, Skeleton } from '@mui/material';
 
 import useIsMounted from '@hooks/use-is-mounted';
 
+import CodeSettingsPanel from './code';
 import GeneralSettingsPanel from './general';
 
 interface SettingsPanelProps {
@@ -48,6 +50,7 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { id: 'general', label: 'General', icon: <SettingsIcon fontSize="small" /> },
+  { id: 'code', label: 'Code', icon: <CodeIcon fontSize="small" /> },
 ];
 
 export default function SettingsPanel({ onClose }: SettingsPanelProps) {
@@ -156,6 +159,7 @@ export default function SettingsPanel({ onClose }: SettingsPanelProps) {
 
         <Box role="tabpanel" sx={{ flex: 1, overflowY: 'auto', p: { xs: 2, sm: 3 } }}>
           {activeSection === 'general' && <GeneralSettingsPanel />}
+          {activeSection === 'code' && <CodeSettingsPanel />}
         </Box>
       </Box>
     </Box>

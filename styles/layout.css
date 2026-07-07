@@ -5,16 +5,19 @@
 [data-density='comfortable'] {
   --spacing-unit: 8px;
   --line-height-body: 1.5;
+  --line-height-code: 1.2;
 }
 
 [data-density='compact'] {
   --spacing-unit: 6px;
   --line-height-body: 1.25;
+  --line-height-code: 1;
 }
 
 [data-density='spacious'] {
   --spacing-unit: 10px;
   --line-height-body: 1.7;
+  --line-height-code: 1.4;
 }
 
 /** Content width tokens */

@@ -14,9 +14,8 @@
  *
  * ------------------------------------------------------------------------------------------------
  *
- * @file index.tsx
- * @description Entry point for the providers module, exporting all provider components for use in
- *              the application as a single provider.
+ * @file highlighter.ts
+ * @description Main highlighter instance.
  * @author thedevmystic (Surya)
  * @copyright 2026-present Suryansh Singh Apache-2.0 License
  *
@@ -24,16 +23,28 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BatchScript } from './batch-script';
-import { BaseProviders } from './base-providers';
-import { CodeProviders } from './code-providers';
+import { createHighlighter } from 'shiki';
+import { createCssVariablesTheme } from 'shiki/core';
 
-export const Providers = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <BaseProviders>
-      <CodeProviders>{children}</CodeProviders>
-    </BaseProviders>
-  );
-};
+import type { Highlighter } from 'shiki';
 
-export { BatchScript };
+const cssVariablesTheme = createCssVariablesTheme({
+  name: 'css-variables',
+  variablePrefix: '--shiki-',
+  variableDefaults: {},
+  fontStyle: true,
+});
+
+let highlighterPromise: Promise<Highlighter> | null = null;
+
+const LANGS = ['c', 'cpp', 'python', 'bash', 'json'] as const;
+
+export function getHighlighter() {
+  if (!highlighterPromise) {
+    highlighterPromise = createHighlighter({
+      themes: [cssVariablesTheme],
+      langs: [...LANGS],
+    });
+  }
+  return highlighterPromise;
+}

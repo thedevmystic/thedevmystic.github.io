@@ -15,8 +15,7 @@
  * ------------------------------------------------------------------------------------------------
  *
  * @file index.tsx
- * @description Entry point for the providers module, exporting all provider components for use in
- *              the application as a single provider.
+ * @description Code catagory settings panel component.
  * @author thedevmystic (Surya)
  * @copyright 2026-present Suryansh Singh Apache-2.0 License
  *
@@ -24,16 +23,30 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BatchScript } from './batch-script';
-import { BaseProviders } from './base-providers';
-import { CodeProviders } from './code-providers';
+'use client';
 
-export const Providers = ({ children }: { children: React.ReactNode }) => {
+import { Typography, Divider } from '@mui/material';
+
+import CodeFontToggle from './code-font-toggle';
+import CodeFontSizeSlider from './code-font-size-slider';
+import CodeThemeToggle from './code-theme-toggle';
+import CodeToggles from './ui-toggles';
+
+export default function CodeSettingsPanel() {
   return (
-    <BaseProviders>
-      <CodeProviders>{children}</CodeProviders>
-    </BaseProviders>
+    <>
+      <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 1 }}>
+        Code
+      </Typography>
+      <CodeThemeToggle />
+      <Divider />
+      <CodeFontToggle />
+      <Divider />
+      <CodeFontSizeSlider />
+      <Typography variant="subtitle1" sx={{ fontWeight: 600, mt: 3, mb: 1 }}>
+        Toggles
+      </Typography>
+      <CodeToggles />
+    </>
   );
-};
-
-export { BatchScript };
+}

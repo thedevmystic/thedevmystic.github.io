@@ -117,3 +117,26 @@
 [data-font-size='xlarge'] {
   --font-size: 24px;
 }
+
+/* Code font size variables. */
+:root,
+[data-code-font-size='normal'] {
+  --code-font-size: 0.875rem;
+  --code-font-size-label: 0.75rem;
+  --code-font-size-copy-button: 1rem;
+}
+[data-code-font-size='small'] {
+  --code-font-size: 0.75rem;
+  --code-font-size-label: 0.625rem;
+  --code-font-size-copy-button: 0.875rem;
+}
+[data-code-font-size='large'] {
+  --code-font-size: 1rem;
+  --code-font-size-label: 0.875rem;
+  --code-font-size-copy-button: 1.125rem;
+}
+[data-code-font-size='xlarge'] {
+  --code-font-size: 1.125rem;
+  --code-font-size-label: 1rem;
+  --code-font-size-copy-button: 1.25rem;
+}

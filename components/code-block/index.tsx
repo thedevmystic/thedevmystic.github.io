@@ -14,9 +14,8 @@
  *
  * ------------------------------------------------------------------------------------------------
  *
- * @file index.tsx
- * @description Entry point for the providers module, exporting all provider components for use in
- *              the application as a single provider.
+ * @file index.ts
+ * @description Code block element to render code.
  * @author thedevmystic (Surya)
  * @copyright 2026-present Suryansh Singh Apache-2.0 License
  *
@@ -24,16 +23,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BatchScript } from './batch-script';
-import { BaseProviders } from './base-providers';
-import { CodeProviders } from './code-providers';
+import { getHighlighter } from './highlighter';
+import { CodeBlockView } from './code-block-view';
 
-export const Providers = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <BaseProviders>
-      <CodeProviders>{children}</CodeProviders>
-    </BaseProviders>
-  );
+interface CodeBlockProps {
+  code: string;
+  language: string;
+}
+
+const CodeBlock = async ({ code, language }: CodeBlockProps) => {
+  const highlighter = await getHighlighter();
+  const html = highlighter.codeToHtml(code, {
+    lang: language,
+    theme: 'css-variables',
+  });
+
+  return <CodeBlockView html={html} code={code} language={language} />;
 };
 
-export { BatchScript };
+export default CodeBlock;

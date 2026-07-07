@@ -23,8 +23,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { getHighlighter } from './highlighter';
 import { CodeBlockView } from './code-block-view';
+import { getHighlighter } from './highlighter';
 
 interface CodeBlockProps {
   code: string;

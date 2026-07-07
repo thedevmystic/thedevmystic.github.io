@@ -24,8 +24,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BatchScript } from './batch-script';
 import { BaseProviders } from './base-providers';
+import { BatchScript } from './batch-script';
 import { CodeProviders } from './code-providers';
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {

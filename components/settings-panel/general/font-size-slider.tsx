@@ -26,7 +26,9 @@
 'use client';
 
 import { Box, Typography, Slider } from '@mui/material';
+
 import { useFontSize } from '@providers/base-providers';
+
 import type { FontSize } from '@providers/base-providers';
 
 const FONT_SIZES: FontSize[] = ['small', 'normal', 'large', 'xlarge'];

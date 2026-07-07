@@ -28,6 +28,7 @@
 import { Box, Typography, FormControl, Select, MenuItem, SelectChangeEvent } from '@mui/material';
 
 import { useCodeTheme } from '@providers/code-providers';
+
 import type { CodeTheme } from '@providers/code-providers';
 
 export default function CodeThemeToggle() {

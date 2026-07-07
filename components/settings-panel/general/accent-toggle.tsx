@@ -26,7 +26,9 @@
 'use client';
 
 import { Box, Typography, ToggleButtonGroup, ToggleButton, Tooltip } from '@mui/material';
+
 import { useAccent } from '@providers/base-providers';
+
 import type { Accent } from '@providers/base-providers';
 
 const ACCENTS = [

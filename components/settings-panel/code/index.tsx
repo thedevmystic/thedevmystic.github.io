@@ -27,8 +27,8 @@
 
 import { Typography, Divider } from '@mui/material';
 
-import CodeFontToggle from './code-font-toggle';
 import CodeFontSizeSlider from './code-font-size-slider';
+import CodeFontToggle from './code-font-toggle';
 import CodeThemeToggle from './code-theme-toggle';
 import CodeToggles from './ui-toggles';
 

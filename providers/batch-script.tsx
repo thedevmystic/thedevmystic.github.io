@@ -24,6 +24,7 @@
  */
 
 import { BatchedTokenScript } from 'next-tokens';
+
 import type { TokenScriptConfig } from 'next-tokens';
 
 interface BatchScriptProps {

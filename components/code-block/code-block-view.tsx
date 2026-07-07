@@ -27,11 +27,13 @@
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+
 import {
   useEnableCodeLabel,
   useEnableCodeCopyButton,
   useEnableLineNumbers,
 } from '@providers/code-providers';
+
 import { CopyButton } from './copy-button';
 
 interface CodeBlockViewProps {

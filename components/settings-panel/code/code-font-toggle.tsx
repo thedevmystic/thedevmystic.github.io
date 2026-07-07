@@ -28,6 +28,7 @@
 import { Box, Typography, FormControl, Select, MenuItem, SelectChangeEvent } from '@mui/material';
 
 import { useCodeFont } from '@providers/code-providers';
+
 import type { CodeFont } from '@providers/code-providers';
 
 export default function CodeFontToggle() {

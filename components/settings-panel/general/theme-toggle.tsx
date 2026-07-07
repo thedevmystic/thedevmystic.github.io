@@ -52,7 +52,24 @@ export default function ThemeToggle() {
   const [baseTheme, setBaseTheme] = useState<BaseTheme>('system');
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSystemHC(window.matchMedia('(prefers-contrast: high)').matches);
+
+    const savedTheme = localStorage.getItem('theme-toggle-base') as BaseTheme | null;
+
+    if (theme === 'light' || theme === 'dark' || theme === 'system') {
+      setBaseTheme(theme);
+    } else if (theme === 'high-contrast-dark') {
+      setBaseTheme('dark');
+    } else if (theme === 'high-contrast-light') {
+      setBaseTheme('light');
+    } else if (theme === 'sepia' && savedTheme) {
+      setBaseTheme(savedTheme);
+    } else {
+      setBaseTheme('system');
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const isHighContrast =
@@ -66,6 +83,7 @@ export default function ThemeToggle() {
     if (isSepia || !selectedTheme) return;
 
     setBaseTheme(selectedTheme);
+    localStorage.setItem('theme-toggle-base', selectedTheme);
 
     if (isHighContrast) {
       // If turning on a base theme while HC is active, preserve HC modifier

@@ -26,7 +26,9 @@
 'use client';
 
 import { Box, Typography, FormControl, Select, MenuItem, SelectChangeEvent } from '@mui/material';
+
 import { useContentWidth } from '@providers/base-providers';
+
 import type { ContentWidth } from '@providers/base-providers';
 
 export default function ContentWidthToggle() {

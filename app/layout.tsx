@@ -30,6 +30,7 @@ import type { Metadata } from 'next';
 
 import { headers } from 'next/headers';
 
+import CookiesBanner from '@components/cookies-banner';
 import NavBar from '@components/navbar';
 import { BatchScript, Providers } from '@providers';
 import { fonts } from '@styles/fonts';
@@ -50,7 +51,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         <BatchScript nonce={nonce} />
       </head>
       <body>
-        <Providers>
+        <Providers nonce={nonce}>
+          <CookiesBanner nonce={nonce} />
           <NavBar />
           {children}
         </Providers>

@@ -372,6 +372,7 @@
   --color-switch-track-disabled: oklch(0.94 0.008 260);
   --color-switch-thumb-unchecked: oklch(0.52 0.02 258);
   --color-switch-thumb-disabled: oklch(0.82 0.01 258);
+  --color-switch-thumb-checked: var(--color-bg-surface);
 }
 
 /* Dark theme */
@@ -380,6 +381,7 @@
   --color-switch-track-disabled: oklch(0.24 0.015 258);
   --color-switch-thumb-unchecked: oklch(0.75 0.015 258);
   --color-switch-thumb-disabled: oklch(0.42 0.012 258);
+  --color-switch-thumb-checked: var(--color-bg-surface);
 }
 
 /* High contrast light theme */
@@ -388,6 +390,7 @@
   --color-switch-track-disabled: oklch(0.95 0 0);
   --color-switch-thumb-unchecked: oklch(0 0 0);
   --color-switch-thumb-disabled: oklch(0.5 0 0);
+  --color-switch-thumb-checked: var(--color-bg-surface);
 }
 
 /* High contrast dark theme */
@@ -396,6 +399,7 @@
   --color-switch-track-disabled: oklch(0.12 0 0);
   --color-switch-thumb-unchecked: oklch(1 0 0);
   --color-switch-thumb-disabled: oklch(0.4 0 0);
+  --color-switch-thumb-checked: var(--color-bg-surface);
 }
 
 /* Sepia theme */
@@ -404,6 +408,7 @@
   --color-switch-track-disabled: oklch(0.9 0.035 78);
   --color-switch-thumb-unchecked: oklch(0.4 0.055 68);
   --color-switch-thumb-disabled: oklch(0.68 0.045 72);
+  --color-switch-thumb-checked: var(--color-bg-surface);
 }
 
 /* CODE THEMES */

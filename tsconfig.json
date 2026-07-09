@@ -41,7 +41,7 @@
       "@components/*": ["./components/*"],
       "@config/*": ["./config/*"],
       "@hooks/*": ["./hooks/*"],
-      "@library/*": ["./library/*"],
+      "@lib/*": ["./lib/*"],
       "@pages/*": ["./pages/*"],
       "@providers": ["./providers/index.tsx"],
       "@providers/*": ["./providers/*"],

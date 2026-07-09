@@ -160,9 +160,9 @@ const { Provider: FontSizeProvider, useToken: useFontSize } = createTokenProvide
     MUI Theme Provider
    --------------------------------------------------------------------------------------------- */
 
-const MuiThemeProviderWrapper = ({ children }: { children: ReactNode }) => {
+const MuiThemeProviderWrapper = ({ children, nonce }: { children: ReactNode; nonce: string }) => {
   return (
-    <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+    <AppRouterCacheProvider options={{ enableCssLayer: true, nonce: nonce }}>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
         {children}
@@ -175,7 +175,7 @@ const MuiThemeProviderWrapper = ({ children }: { children: ReactNode }) => {
     Base Providers
    --------------------------------------------------------------------------------------------- */
 
-export const BaseProviders = ({ children }: { children: ReactNode }) => {
+export const BaseProviders = ({ children, nonce }: { children: ReactNode; nonce: string }) => {
   return (
     <ThemeProvider>
       <AccentProvider>
@@ -184,7 +184,7 @@ export const BaseProviders = ({ children }: { children: ReactNode }) => {
             <ContentWidthProvider>
               <FontProvider>
                 <FontSizeProvider>
-                  <MuiThemeProviderWrapper>{children}</MuiThemeProviderWrapper>
+                  <MuiThemeProviderWrapper nonce={nonce}>{children}</MuiThemeProviderWrapper>
                 </FontSizeProvider>
               </FontProvider>
             </ContentWidthProvider>

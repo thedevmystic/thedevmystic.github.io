@@ -30,12 +30,14 @@ import type { ReactNode } from 'react';
 
 import CloseIcon from '@mui/icons-material/Close';
 import CodeIcon from '@mui/icons-material/Code';
+import CookieIcon from '@mui/icons-material/Cookie';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Box, Typography, IconButton, Skeleton } from '@mui/material';
 
 import useIsMounted from '@hooks/use-is-mounted';
 
 import CodeSettingsPanel from './code';
+import CookiesSettingsPanel from './cookies';
 import GeneralSettingsPanel from './general';
 
 interface SettingsPanelProps {
@@ -51,6 +53,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { id: 'general', label: 'General', icon: <SettingsIcon fontSize="small" /> },
   { id: 'code', label: 'Code', icon: <CodeIcon fontSize="small" /> },
+  { id: 'cookies', label: 'Privacy', icon: <CookieIcon fontSize="small" /> },
 ];
 
 export default function SettingsPanel({ onClose }: SettingsPanelProps) {
@@ -59,10 +62,75 @@ export default function SettingsPanel({ onClose }: SettingsPanelProps) {
 
   if (!isMounted) {
     return (
-      <Box sx={{ width: '100%', p: 3 }}>
-        <Skeleton variant="text" width="30%" height={28} sx={{ mb: 2 }} />
-        <Skeleton variant="rounded" width="100%" height={56} sx={{ mb: 1.5 }} />
-        <Skeleton variant="rounded" width="60%" height={40} />
+      <Box sx={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
+        {/* Header Skeleton */}
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            px: 3,
+            py: 2,
+            borderBottom: 1,
+            borderColor: 'divider',
+            flexShrink: 0,
+          }}
+        >
+          <Skeleton variant="text" width={100} height={32} sx={{ transform: 'none' }} />
+          {onClose && <Skeleton variant="circular" width={28} height={28} />}
+        </Box>
+
+        {/* Body Skeleton */}
+        <Box
+          sx={{
+            flex: 1,
+            display: 'flex',
+            flexDirection: { xs: 'column', sm: 'row' },
+            overflow: 'hidden',
+          }}
+        >
+          {/* Sidebar Navigation Skeletons */}
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'row', sm: 'column' },
+              flexShrink: 0,
+              width: { xs: '100%', sm: 220 },
+              gap: { xs: 1, sm: 0.5 },
+              p: { xs: 1.5, sm: 2 },
+              borderBottom: { xs: 1, sm: 0 },
+              borderRight: { xs: 0, sm: 1 },
+              borderColor: 'var(--color-divider) !important',
+            }}
+          >
+            {NAV_ITEMS.map((item) => (
+              <Box
+                key={item.id}
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1.25,
+                  px: { xs: 2, sm: 1.5 },
+                  py: { xs: 0.75, sm: 1 },
+                  height: 38,
+                }}
+              >
+                <Box component="span" sx={{ display: { xs: 'none', sm: 'inline-flex' } }}>
+                  <Skeleton variant="circular" width={20} height={20} />
+                </Box>
+                {/* Text Skeleton */}
+                <Skeleton variant="text" width={60} height={20} sx={{ transform: 'none' }} />
+              </Box>
+            ))}
+          </Box>
+
+          {/* Main Content Area Skeleton */}
+          <Box sx={{ flex: 1, p: { xs: 2, sm: 3 } }}>
+            <Skeleton variant="text" width="40%" height={28} sx={{ mb: 2, transform: 'none' }} />
+            <Skeleton variant="rounded" width="100%" height={120} sx={{ mb: 2 }} />
+            <Skeleton variant="rounded" width="85%" height={80} />
+          </Box>
+        </Box>
       </Box>
     );
   }
@@ -160,6 +228,7 @@ export default function SettingsPanel({ onClose }: SettingsPanelProps) {
         <Box role="tabpanel" sx={{ flex: 1, overflowY: 'auto', p: { xs: 2, sm: 3 } }}>
           {activeSection === 'general' && <GeneralSettingsPanel />}
           {activeSection === 'code' && <CodeSettingsPanel />}
+          {activeSection === 'cookies' && <CookiesSettingsPanel />}
         </Box>
       </Box>
     </Box>

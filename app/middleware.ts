@@ -31,11 +31,12 @@ export function middleware(request: NextRequest) {
 
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' ${
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://www.googletagmanager.com ${
       process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : ''
     };
     style-src 'self' 'nonce-${nonce}';
-    img-src 'self' blob: data:;
+    img-src 'self' blob: data: https://www.google-analytics.com https://www.googletagmanager.com;
+    connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com;
     font-src 'self';
     object-src 'none';
     base-uri 'self';

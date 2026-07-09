@@ -14,7 +14,7 @@
  *
  * ------------------------------------------------------------------------------------------------
  *
- * @file base-provider.tsx
+ * @file code-provider.tsx
  * @description Code providers for the application.
  * @author thedevmystic (Surya)
  * @copyright 2026-present Suryansh Singh Apache-2.0 License

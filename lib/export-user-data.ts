@@ -14,9 +14,8 @@
  *
  * ------------------------------------------------------------------------------------------------
  *
- * @file index.tsx
- * @description Entry point for the providers module, exporting all provider components for use in
- *              the application as a single provider.
+ * @file export-data.ts
+ * @description Export user data helper function.
  * @author thedevmystic (Surya)
  * @copyright 2026-present Suryansh Singh Apache-2.0 License
  *
@@ -24,19 +23,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BaseProviders } from './base-providers';
-import { BatchScript } from './batch-script';
-import { CodeProviders } from './code-providers';
-import { CookiesProviders } from './cookies-providers';
+export default function exportUserData() {
+  // export dummy data for now
+  const data = { name: 'Jonathan Joestar', age: 20, occupation: 'Gentleman' };
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
 
-export const Providers = ({ children, nonce }: { children: React.ReactNode; nonce: string }) => {
-  return (
-    <BaseProviders nonce={nonce}>
-      <CodeProviders>
-        <CookiesProviders>{children}</CookiesProviders>
-      </CodeProviders>
-    </BaseProviders>
-  );
-};
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'user-data.json';
+  document.body.appendChild(link);
+  link.click();
 
-export { BatchScript };
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
